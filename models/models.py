@@ -39,7 +39,8 @@ class RegistrationResponseModel(BaseModel):
 
 #Negative response models
 class NegativeLoginResponseModel(BaseModel):
-    detail: Optional[list] = [NegativeLoginModelComponents]
+    #detail: Optional[list] = [NegativeLoginModelComponents]
+    detail: Optional[list[NegativeLoginModelComponents]] = None
 
 
 class NegativeRegistrationResponseModel(BaseModel):
