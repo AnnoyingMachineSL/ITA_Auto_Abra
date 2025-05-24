@@ -3,9 +3,12 @@ import playwright
 import pytest
 from playwright.sync_api import sync_playwright
 from Client.client import Client
+from Client.postgres_client import PostgresClient
 from utils.config import APILogin
-from models.models import LoginModel, LoginResponseModel, RegistrationResponseModel, NegativeLoginResponseModel, NegativeRegistrationResponseModel
+from models.models import LoginModel, LoginResponseModel, RegistrationResponseModel, NegativeLoginResponseModel, \
+    NegativeRegistrationResponseModel
 from utils import generator
+import psycopg2
 
 
 @allure.title('[Positive] Api Tests')
@@ -22,6 +25,8 @@ class TestApi:
             login_model = LoginModel(email=email, password=password)
         with allure.step(f'Log in by models: {login_model} and {LoginResponseModel}'):
             response = Client().login(request=login_model, expected_model=LoginResponseModel())
+
+        PostgresClient().get_user(email=email, is_deleted=False, is_verified=True)
         return response
 
     @allure.title('[Api test] Registration')
@@ -38,8 +43,8 @@ class TestApi:
         with allure.step(f'Registration by models: {registration_model} and {RegistrationResponseModel}'):
             response = Client().registration(request=registration_model, expected_model=RegistrationResponseModel(),
                                              user_type=user_type, status_code=200)
+        PostgresClient().get_user(email=random_email.lower(), is_deleted=False, is_verified=False)
         return response
-
 
 
 @allure.title('[Negative] Api Tests')
@@ -69,7 +74,6 @@ class TestApiNegative:
     @pytest.mark.parametrize('user_type', ['seller', 'supplier'])
     def test_negative_registration(self, email: str, password: str,
                                    user_type: str, status_code: int = 422):
-
         with allure.step(f'Create RegistrationModel by email:{email} and password {password}'):
             registration_model = LoginModel(email=email, password=password)
         with allure.step(f'Registration by models: {registration_model} and {NegativeRegistrationResponseModel}'):
