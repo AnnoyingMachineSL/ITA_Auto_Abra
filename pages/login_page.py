@@ -11,6 +11,7 @@ class LoginPage(BasePage):
         self.PASSWORD_FIELD = self.page.locator('//*[@id="root"]/div/div/div/form/div[2]/input')
         self.LOG_IN_BUTTON = self.page.locator('//*[@id="root"]/div/div/div/form/button')
         self.HEADER_ACTIONS = self.page.locator('//*[@id="root"]/div/div/header/div[1]/div/div[2]')
+        self.START_BUYING_TEXT = self.page.get_by_text('Start buying in bulk now!')
 
     def click_login_button(self):
         self.LOGIN_BUTTON.click()
@@ -25,5 +26,8 @@ class LoginPage(BasePage):
         self.LOG_IN_BUTTON.click()
 
     def check_post_log_in_header(self):
-        self.HEADER_ACTIONS.to_be_visible()
+        expect(self.HEADER_ACTIONS).to_be_visible()
+
+    def click_on_start_buying_text(self):
+        self.START_BUYING_TEXT.click()
 

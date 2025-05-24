@@ -17,4 +17,3 @@ def random_password():
 
 
 
-print(random_password())

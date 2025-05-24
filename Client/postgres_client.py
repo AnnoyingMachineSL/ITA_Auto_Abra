@@ -1,3 +1,5 @@
+import time
+
 import psycopg2
 
 from models.postgres_models import UserModel
@@ -19,8 +21,8 @@ class PostgresClient:
         return cursor.fetchall()  # Возвращаем ответ
 
     def get_user(self, email: str, is_deleted: bool, is_verified: bool):
-        result = self.get_instance('select * from "user" u where email = '
-                                 f"'{email}'")
+        request = 'select * from "user" u where email = ' + f"'{email}'"
+        result = self.get_instance(request)
         assert len(result) == 1
         actual_model = UserModel(email=result[0][3], is_deleted=result[0][1], is_verified=result[0][0])
         expected_model = UserModel(email=email, is_deleted=is_deleted, is_verified=is_verified)
