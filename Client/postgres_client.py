@@ -12,9 +12,9 @@ class PostgresClient:
     def get_instance(request: str):
         connection = psycopg2.connect(database='postgres',
                                       user='test_user',
-                                      password='postgres',
+                                      password='nQhrNsjoajEr',
                                       host='172.212.108.64',
-                                      port=6532)  # Открытие bd
+                                      port=6502)  # Открытие bd
 
         cursor = connection.cursor()  # Обращение к bd
         cursor.execute(request)  # Передаем запрос в файл

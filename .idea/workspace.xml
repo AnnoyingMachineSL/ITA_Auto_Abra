@@ -4,15 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="74526a0b-dfcd-40d9-b7e9-46a51870113f" name="Changes" comment="Add ui">
-      <change afterPath="$PROJECT_DIR$/pages/registration_page.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_ui/test_registration.py" afterDir="false" />
+    <list default="true" id="74526a0b-dfcd-40d9-b7e9-46a51870113f" name="Changes" comment="Add ui tests and checks info in bd">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/postgres_client.py" beforeDir="false" afterPath="$PROJECT_DIR$/Client/postgres_client.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/login_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/login_page.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_ui/test_login.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_ui/test_login.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/generator.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/generator.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,25 +32,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python tests.Python tests for test_api.TestApi.executor": "Run",
-    "Python tests.Python tests for test_api.TestApi.test_login.executor": "Run",
-    "Python tests.Python tests for test_api.TestApi.test_registration.executor": "Run",
-    "Python tests.Python tests for test_api.TestApiNegative.executor": "Run",
-    "Python tests.Python tests for test_api.TestApiNegative.test_negative_login_incorrect_data.executor": "Run",
-    "Python tests.Python tests for test_api.TestApiNegative.test_negative_registration.executor": "Run",
-    "Python tests.Python tests for test_login.TestLogin.executor": "Run",
-    "Python tests.Python tests for test_login.TestLogin.test_login.executor": "Run",
-    "Python tests.Python tests for test_registration.TestRegistration.executor": "Run",
-    "Python tests.Python tests for test_registration.TestRegistration.test_registration.executor": "Run",
-    "Python.generator.executor": "Run",
-    "Python.test_api.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python tests.Python tests for test_api.TestApi.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_api.TestApi.test_login.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_api.TestApi.test_registration.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_api.TestApiNegative.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_api.TestApiNegative.test_negative_login_incorrect_data.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_api.TestApiNegative.test_negative_registration.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_login.TestLogin.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_login.TestLogin.test_login.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_registration.TestRegistration.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_registration.TestRegistration.test_registration.executor&quot;: &quot;Run&quot;,
+    &quot;Python.generator.executor&quot;: &quot;Run&quot;,
+    &quot;Python.test_api.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Python tests.Python tests for test_registration.TestRegistration.test_registration">
     <configuration name="Python tests for test_api.TestApiNegative" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="ITA_Auto_Abra" />
@@ -183,13 +177,22 @@
       <option name="project" value="LOCAL" />
       <updated>1748072809170</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Add ui tests and checks info in bd">
+      <option name="closed" value="true" />
+      <created>1748081618625</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1748081618625</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="new project" />
     <MESSAGE value="qwe" />
     <MESSAGE value="Add ui" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add ui" />
+    <MESSAGE value="Add ui tests and checks info in bd" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add ui tests and checks info in bd" />
   </component>
 </project>
