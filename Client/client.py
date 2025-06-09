@@ -1,9 +1,14 @@
+import json
 from typing import Union
 
 import allure
 import requests
-from models.models import LoginModel, LoginResponseModel, RegistrationResponseModel, NegativeLoginResponseModel, NegativeRegistrationResponseModel
+from models.models import LoginModel, LoginResponseModel, RegistrationResponseModel, NegativeLoginResponseModel, \
+    NegativeRegistrationResponseModel, ConfirmEmailToken
 from utils.valdate_response import ValidateResponse
+
+
+
 # from dotenv import load_dotenv
 
 
@@ -41,3 +46,8 @@ class Client(ClientApi):
                      user_type: str, status_code: int = 200):
         response = self.request(method='post', url=f'/auth/sign-up/{user_type}', json=request.model_dump())
         return ValidateResponse.validate_response(response=response, model=expected_model, status_code=status_code)
+
+    def confirm_email(self, request: ConfirmEmailToken):
+        #token_body = json.loads(json.dumps({'token':token}))
+        response = self.request(method='get', url='/auth/sign-up/confirmEmail', json=request.model_dump())
+        return response.json(), response.status_code

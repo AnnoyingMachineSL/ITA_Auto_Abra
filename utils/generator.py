@@ -15,5 +15,5 @@ def random_password():
     return random_name() + '!' + ''.join([random.choice(string.digits) for i in range(4)])
 
 
-
-
+def random_temporary_email():
+    return random_name() + '@mailto.plus'
