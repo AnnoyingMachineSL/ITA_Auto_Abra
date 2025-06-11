@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="74526a0b-dfcd-40d9-b7e9-46a51870113f" name="Changes" comment="add allure steps&#10;add ConfirmEmail data model">
-      <change beforePath="$PROJECT_DIR$/client/client.py" beforeDir="false" afterPath="$PROJECT_DIR$/client/client.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_api/test_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_api/test_api.py" afterDir="false" />
+    <list default="true" id="74526a0b-dfcd-40d9-b7e9-46a51870113f" name="Changes" comment="cut ConfirmTokenModel">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/client_email.py" beforeDir="false" afterPath="$PROJECT_DIR$/client/client_email.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -225,7 +225,15 @@
       <option name="project" value="LOCAL" />
       <updated>1749665187358</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="cut ConfirmTokenModel">
+      <option name="closed" value="true" />
+      <created>1749665299469</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1749665299469</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -236,6 +244,7 @@
     <MESSAGE value="new credits" />
     <MESSAGE value="cut user search in db" />
     <MESSAGE value="add allure steps&#10;add ConfirmEmail data model" />
-    <option name="LAST_COMMIT_MESSAGE" value="add allure steps&#10;add ConfirmEmail data model" />
+    <MESSAGE value="cut ConfirmTokenModel" />
+    <option name="LAST_COMMIT_MESSAGE" value="cut ConfirmTokenModel" />
   </component>
 </project>
