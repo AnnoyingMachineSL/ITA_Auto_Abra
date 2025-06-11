@@ -1,3 +1,4 @@
+import time
 from typing import Union
 import allure
 import requests
@@ -37,6 +38,7 @@ class EmailClient(ClientEmail):
         return message_response.json()
 
     def get_registration_token(self):
+        time.sleep(2)
         return self.get_message_by_id()['html'].split('href="')[1].split('">')[0].split('token=')[1]
 
 

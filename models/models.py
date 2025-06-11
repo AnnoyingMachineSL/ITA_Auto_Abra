@@ -46,7 +46,7 @@ class NegativeRegistrationResponseModel(BaseModel):
     detail: Optional[list] = [NegativeLoginModelComponents, NegativeRegistrationModelSecondComponents]
 
 
-
-# Confirm email
-class ConfirmEmailToken(BaseModel):
-    token: Optional[str]
+#Confirm email response model
+class ConfirmEmailResponse(BaseModel):
+    ok: Optional[bool] = True
+    result: Optional[bool] = True
