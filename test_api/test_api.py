@@ -29,7 +29,6 @@ class TestApi:
         with allure.step(f'Log in by models: {login_model} and {LoginResponseModel}'):
             response = Client().login(request=login_model, expected_model=LoginResponseModel())
 
-        PostgresClient().get_user(email=email, is_deleted=False, is_verified=True)
         return response
 
     @allure.title('[Api test] Registration')
