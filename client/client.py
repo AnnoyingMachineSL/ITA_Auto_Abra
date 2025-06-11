@@ -3,7 +3,7 @@ from typing import Union
 import allure
 import requests
 from models.models import LoginModel, LoginResponseModel, RegistrationResponseModel, NegativeLoginResponseModel, \
-    NegativeRegistrationResponseModel, ConfirmEmailToken
+    NegativeRegistrationResponseModel
 from utils.validate_response import ValidateResponse
 # from dotenv import load_dotenv
 

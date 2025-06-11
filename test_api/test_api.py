@@ -9,7 +9,7 @@ from client.client_email import EmailClient
 from client.postgres_client import PostgresClient
 from utils.config import APILogin
 from models.models import LoginModel, LoginResponseModel, RegistrationResponseModel, NegativeLoginResponseModel, \
-    NegativeRegistrationResponseModel, ConfirmEmailToken, ConfirmEmailResponse
+    NegativeRegistrationResponseModel, ConfirmEmailResponse
 from utils import generator
 import psycopg2
 
