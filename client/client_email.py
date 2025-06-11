@@ -38,10 +38,5 @@ class EmailClient(ClientEmail):
         return message_response.json()
 
     def get_registration_token(self):
-        time.sleep(2)
+        time.sleep(3)
         return self.get_message_by_id()['html'].split('href="')[1].split('">')[0].split('token=')[1]
-
-
-random_email = random_temporary_email()
-print(random_email)
-print(EmailClient('ovAwDLmQtZ@mailto.plus').get_email())
