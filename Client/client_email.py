@@ -25,6 +25,7 @@ class EmailClient(ClientEmail):
     def __init__(self, temporary_email):
         super().__init__()
         self.base_email = temporary_email
+
     def get_email(self):
         response = self.request(method='get', url=f'/api/mails?email={self.base_email}')
         return response.json()

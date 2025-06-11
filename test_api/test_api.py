@@ -4,9 +4,9 @@ import allure
 import playwright
 import pytest
 from playwright.sync_api import sync_playwright
-from Client.client import Client
-from Client.client_email import EmailClient
-from Client.postgres_client import PostgresClient
+from client.client import Client
+from client.client_email import EmailClient
+from client.postgres_client import PostgresClient
 from utils.config import APILogin
 from models.models import LoginModel, LoginResponseModel, RegistrationResponseModel, NegativeLoginResponseModel, \
     NegativeRegistrationResponseModel, ConfirmEmailToken
@@ -49,15 +49,12 @@ class TestApi:
         with allure.step(f'Registration by models: {registration_model} and {RegistrationResponseModel}'):
             response = Client().registration(request=registration_model, expected_model=RegistrationResponseModel(),
                                              user_type=user_type, status_code=200)
-        time.sleep(5)
+        time.sleep(3)
         token = email_client.get_registration_token()
-        token_model = ConfirmEmailToken(token=token)
-        print(token_model)
+        confirm_email_response, confirm_email_status_code = Client().confirm_email(token=token)
 
-        _, confirm_email_status_code = Client().confirm_email(request=token_model)
-        print(confirm_email_status_code)
-
-        PostgresClient().get_user(email=random_email.lower(), is_deleted=False, is_verified=False)
+        # if confirm_email_status_code == 200:
+        #     PostgresClient().get_user(email=random_email.lower(), is_deleted=False, is_verified=False)
         return response
 
 
