@@ -64,3 +64,47 @@ class TestRegistration:
 
         # with allure.step('Check created user on db'):
         #     PostgresClient().get_user(email=email.lower(), is_deleted=False, is_verified=False)
+
+
+
+@pytest.mark.negative
+@allure.title('[UI][Negative] Registration test')
+@allure.severity(allure.severity_level.NORMAL)
+class TestRegistrationNegative:
+    @pytest.mark.negative
+    @allure.title('[UI][Negative] Registration by incorrect data')
+    @pytest.mark.parametrize('role', ['buyer', 'seller'])
+    @pytest.mark.parametrize('email, password', [('', 'qwe123'), ('qwe123', ''), ('@gmail.com', 'a')])
+    def test_registration_incorrect_data(self, page, role: str, email: str, password: str):
+        registration_page = RegistrationPage(page)
+
+        with allure.step('Open base url'):
+            registration_page.open_page(AbraLoginConfig.BASE_PAGE_URL)
+
+        with allure.step('Click on registration button'):
+            registration_page.click_registration_button()
+
+        if role == 'buyer':
+            registration_page.click_be_buyer_button()
+        elif role == 'seller':
+            registration_page.click_be_seller_button()
+
+        with allure.step(f'Fill login field by data: {email}'):
+            registration_page.fill_login_field(email)
+            registration_page.click_start_buying_text()
+
+        with allure.step('Check the error message for email field'):
+            if len(email) == 0:
+                registration_page.check_empty_email_error_message()
+            else:
+                registration_page.check_invalid_email_error_message()
+
+        with allure.step(f'Fill password field by data: {password}'):
+            registration_page.fill_password_field(password)
+            registration_page.click_start_buying_text()
+
+        with allure.step('Check the error message for password field'):
+            if len(password) == 0:
+                registration_page.check_empty_password_error_message()
+            else:
+                registration_page.check_invalid_password_error_message()

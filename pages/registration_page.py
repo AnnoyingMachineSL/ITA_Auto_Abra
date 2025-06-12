@@ -13,6 +13,12 @@ class RegistrationPage(BasePage):
         self.CREATE_ACCOUNT_BUTTON = self.page.locator('//*[@id="root"]/div/div/div/form/button')
         self.START_BUYING_TEXT = self.page.get_by_text('Start buying in bulk now!')
         self.POST_REGISTRATION_TEXT = self.page.get_by_text('A link for sign up has been sent to your email address.')
+        self.EMPTY_EMAIL_ERROR_MESSAGE = self.page.get_by_text('Email is required')
+        self.INVALID_EMAIL_ERROR_MESSAGE = self.page.get_by_text('Invalid email')
+        self.EMPTY_PASSWORD_ERROR_MESSAGE = self.page.get_by_text('Password is required')
+        self.INVALID_PASSWORD_ERROR_MESSAGE = self.page.get_by_text('Password must match the next requirements')
+
+
     def click_registration_button(self):
         self.REGISTRATION_BUTTON.click()
 
@@ -36,3 +42,15 @@ class RegistrationPage(BasePage):
 
     def check_post_registration_text(self):
         expect(self.POST_REGISTRATION_TEXT).to_be_visible()
+
+    def check_empty_email_error_message(self):
+        expect(self.EMPTY_EMAIL_ERROR_MESSAGE).to_be_visible()
+
+    def check_invalid_email_error_message(self):
+        expect(self.INVALID_EMAIL_ERROR_MESSAGE).to_be_visible()
+
+    def check_empty_password_error_message(self):
+        expect(self.EMPTY_PASSWORD_ERROR_MESSAGE).to_be_visible()
+
+    def check_invalid_password_error_message(self):
+        expect(self.INVALID_PASSWORD_ERROR_MESSAGE).to_be_visible()
