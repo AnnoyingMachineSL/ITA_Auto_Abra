@@ -39,7 +39,7 @@ class TestLogin:
 @allure.severity(allure.severity_level.NORMAL)
 class TestLoginNegative:
 
-    @pytest.mark.positive
+    @pytest.mark.negative
     @allure.title('[UI][Negative] Login test')
     @pytest.mark.parametrize('email, password', [('', 'qwe123'), ('qwe123', ''), ('@gmail.com', 'a')])
     def test_login_negative(self, page, email, password):
@@ -48,7 +48,7 @@ class TestLoginNegative:
         with allure.step('Open main page'):
             login_page.open_page(AbraLoginConfig.BASE_PAGE_URL)
 
-        with allure.step('Click on login buttom'):
+        with allure.step('Click on login button'):
             login_page.click_login_button()
 
         with allure.step(f'Fill login field by {email}'):
@@ -65,7 +65,7 @@ class TestLoginNegative:
             login_page.fill_password_field(password)
             login_page.click_on_start_buying_text()
 
-        with allure.step('Check error message for passwrod field'):
+        with allure.step('Check error message for password field'):
             if len(password) == 0:
                 login_page.check_empty_password_error_message()
             else:

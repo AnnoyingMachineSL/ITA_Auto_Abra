@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="74526a0b-dfcd-40d9-b7e9-46a51870113f" name="Changes" comment="add time to check token">
+    <list default="true" id="74526a0b-dfcd-40d9-b7e9-46a51870113f" name="Changes" comment="add negative UI login and registration test">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/login_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/login_page.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/registration_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/registration_page.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test_ui/test_login.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_ui/test_login.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test_ui/test_registration.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_ui/test_registration.py" afterDir="false" />
     </list>
@@ -239,7 +237,15 @@
       <option name="project" value="LOCAL" />
       <updated>1749665631357</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="add negative UI login and registration test">
+      <option name="closed" value="true" />
+      <created>1749745351424</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1749745351424</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -252,6 +258,7 @@
     <MESSAGE value="add allure steps&#10;add ConfirmEmail data model" />
     <MESSAGE value="cut ConfirmTokenModel" />
     <MESSAGE value="add time to check token" />
-    <option name="LAST_COMMIT_MESSAGE" value="add time to check token" />
+    <MESSAGE value="add negative UI login and registration test" />
+    <option name="LAST_COMMIT_MESSAGE" value="add negative UI login and registration test" />
   </component>
 </project>

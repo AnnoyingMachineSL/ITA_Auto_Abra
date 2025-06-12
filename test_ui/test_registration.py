@@ -21,7 +21,7 @@ class TestRegistration:
     @allure.title('[UI][Positive] Registration test')
     @allure.severity(allure.severity_level.CRITICAL)
     @pytest.mark.parametrize('role', ['buyer', 'seller'])
-    def test_registration(self, page, role: str, email: str = None, password: str = None):
+    def test_registration(self, page, role: str):
         registration_page = RegistrationPage(page)
 
         with allure.step('Open base url'):
