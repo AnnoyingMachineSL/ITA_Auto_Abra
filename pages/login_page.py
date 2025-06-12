@@ -12,6 +12,10 @@ class LoginPage(BasePage):
         self.LOG_IN_BUTTON = self.page.locator('//*[@id="root"]/div/div/div/form/button')
         self.HEADER_ACTIONS = self.page.locator('//*[@id="root"]/div/div/header/div[1]/div/div[2]')
         self.START_BUYING_TEXT = self.page.get_by_text('Start buying in bulk now!')
+        self.EMPTY_EMAIL_ERROR_MESSAGE = self.page.get_by_text('Email is required')
+        self.INVALID_EMAIL_ERROR_MESSAGE = self.page.get_by_text('Invalid email')
+        self.EMPTY_PASSWORD_ERROR_MESSAGE = self.page.get_by_text('Password is required')
+        self.INVALID_PASSWORD_ERROR_MESSAGE = self.page.get_by_text('Password must be at least 8 characters')
 
     def click_login_button(self):
         self.LOGIN_BUTTON.click()
@@ -30,4 +34,16 @@ class LoginPage(BasePage):
 
     def click_on_start_buying_text(self):
         self.START_BUYING_TEXT.click()
+
+    def check_empty_email_error_message(self):
+        expect(self.EMPTY_EMAIL_ERROR_MESSAGE).to_be_visible()
+
+    def check_invalid_email_error_message(self):
+        expect(self.INVALID_EMAIL_ERROR_MESSAGE).to_be_visible()
+
+    def check_empty_password_error_message(self):
+        expect(self.EMPTY_PASSWORD_ERROR_MESSAGE).to_be_visible()
+
+    def check_invalid_password_error_message(self):
+        expect(self.INVALID_PASSWORD_ERROR_MESSAGE).to_be_visible()
 

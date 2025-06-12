@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="74526a0b-dfcd-40d9-b7e9-46a51870113f" name="Changes" comment="cut ConfirmTokenModel">
+    <list default="true" id="74526a0b-dfcd-40d9-b7e9-46a51870113f" name="Changes" comment="add time to check token">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/client_email.py" beforeDir="false" afterPath="$PROJECT_DIR$/client/client_email.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/login_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/login_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/registration_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/registration_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_ui/test_login.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_ui/test_login.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_ui/test_registration.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_ui/test_registration.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,8 +45,10 @@
     "Python tests.Python tests for test_api.TestApiNegative.test_negative_registration.executor": "Run",
     "Python tests.Python tests for test_login.TestLogin.executor": "Run",
     "Python tests.Python tests for test_login.TestLogin.test_login.executor": "Run",
+    "Python tests.Python tests for test_login.TestLoginNegative.test_login_negative.executor": "Run",
     "Python tests.Python tests for test_registration.TestRegistration.executor": "Run",
     "Python tests.Python tests for test_registration.TestRegistration.test_registration.executor": "Run",
+    "Python tests.Python tests for test_registration.TestRegistrationNegative.test_registration_incorrect_data.executor": "Run",
     "Python.client_email.executor": "Run",
     "Python.generator.executor": "Run",
     "Python.test_api.executor": "Run",
@@ -53,7 +58,7 @@
     "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
-  <component name="RunManager" selected="Python tests.Python tests for test_api.TestApi.test_registration">
+  <component name="RunManager" selected="Python tests.Python tests for test_login.TestLoginNegative.test_login_negative">
     <configuration name="client_email" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="ITA_Auto_Abra" />
       <option name="ENV_FILES" value="" />
@@ -68,28 +73,6 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Client/client_email.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="generator" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="ITA_Auto_Abra" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/utils" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/utils/generator.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -113,7 +96,7 @@
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Python tests for test_registration.TestRegistration" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+    <configuration name="Python tests for test_login.TestLoginNegative.test_login_negative" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="ITA_Auto_Abra" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -124,7 +107,22 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_registration.TestRegistration&quot;" />
+      <option name="_new_target" value="&quot;test_login.TestLoginNegative.test_login_negative&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for test_registration.TestRegistrationNegative.test_registration_incorrect_data" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="ITA_Auto_Abra" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test_ui" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_registration.TestRegistrationNegative.test_registration_incorrect_data&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
@@ -145,11 +143,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python tests.Python tests for test_login.TestLoginNegative.test_login_negative" />
+        <item itemvalue="Python tests.Python tests for test_registration.TestRegistrationNegative.test_registration_incorrect_data" />
         <item itemvalue="Python tests.Python tests for test_api.TestApi.test_registration" />
         <item itemvalue="Python tests.Python tests for test_registration.TestRegistration.test_registration" />
         <item itemvalue="Python.client_email" />
-        <item itemvalue="Python.generator" />
-        <item itemvalue="Python tests.Python tests for test_registration.TestRegistration" />
       </list>
     </recent_temporary>
   </component>
@@ -233,7 +231,15 @@
       <option name="project" value="LOCAL" />
       <updated>1749665299469</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="add time to check token">
+      <option name="closed" value="true" />
+      <created>1749665631357</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1749665631357</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -245,6 +251,7 @@
     <MESSAGE value="cut user search in db" />
     <MESSAGE value="add allure steps&#10;add ConfirmEmail data model" />
     <MESSAGE value="cut ConfirmTokenModel" />
-    <option name="LAST_COMMIT_MESSAGE" value="cut ConfirmTokenModel" />
+    <MESSAGE value="add time to check token" />
+    <option name="LAST_COMMIT_MESSAGE" value="add time to check token" />
   </component>
 </project>
