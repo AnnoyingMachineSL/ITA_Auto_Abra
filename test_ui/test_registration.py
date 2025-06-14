@@ -18,6 +18,7 @@ from models.models import ConfirmEmailResponse
 class TestRegistration:
 
     @pytest.mark.positive
+    @pytest.mark.UI
     @allure.title('[UI][Positive] Registration test')
     @allure.severity(allure.severity_level.CRITICAL)
     @pytest.mark.parametrize('role', ['buyer', 'seller'])
@@ -42,7 +43,6 @@ class TestRegistration:
         elif role == 'seller':
             registration_page.click_be_seller_button()
 
-
         with allure.step(f'Fill login field by data: {email}'):
             registration_page.fill_login_field(email)
 
@@ -66,12 +66,13 @@ class TestRegistration:
         #     PostgresClient().get_user(email=email.lower(), is_deleted=False, is_verified=False)
 
 
-
 @pytest.mark.negative
+@pytest.mark.UI
 @allure.title('[UI][Negative] Registration test')
 @allure.severity(allure.severity_level.NORMAL)
 class TestRegistrationNegative:
     @pytest.mark.negative
+    @pytest.mark.UI
     @allure.title('[UI][Negative] Registration by incorrect data')
     @pytest.mark.parametrize('role', ['buyer', 'seller'])
     @pytest.mark.parametrize('email, password', [('', 'qwe123'), ('qwe123', ''), ('@gmail.com', 'a')])
