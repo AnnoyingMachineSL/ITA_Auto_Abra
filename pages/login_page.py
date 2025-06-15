@@ -25,19 +25,9 @@ class LoginPage(BasePage):
         self.TERMS_AND_CONDITIONS_LINK = self.page.locator('//*[@id="root"]/div/div/footer/div/div/a[1]')
         self.PRIVACY_POLICY_LINK = self.page.locator('//*[@id="root"]/div/div/footer/div/div/a[2]')
 
-        #forgot password link
-        self.FORGOT_PASSWORD_TITLE = self.page.locator('//*[@id="root"]/div/div/div/form/div/input')
-        self.FORGOT_EMAIL_FIELD = self.page.locator('//*[@id="root"]/div/div/div/form/div/input')
-        self.RESET_PASSWORD_BUTTON = self.page.locator('//*[@id="root"]/div/div/div/form/button')
-        self.POST_RESET_PASSWORD_TEXT = self.page.locator('//*[@id="root"]/div/div/div/div[1]/div[1]')
-        self.ENTER_EMAIL_TEXT = self.page.locator('//*[@id="root"]/div/div/div/div[2]')
+        #account_info page
+        self.ACCOUNT_INFO_LOGO = self.page.locator('//*[@id="root"]/div/div/div/div/p[1]')
 
-        #create new password page
-        self.NEW_PASSWORD_FIELD = self.page.locator('//*[@id="root"]/div/div/div/form/div[1]/input')
-        self.CONFIRM_NEW_PASSWORD_FIELD = self.page.locator('//*[@id="root"]/div/div/div/form/div[2]/input')
-        self.CREATE_NEW_PASSWORD_TITLE = self.page.locator('//*[@id="root"]/div/div/div/div[1]')
-        self.ENTER_NEW_PASSWORD_TEXT = self.page.locator('//*[@id="root"]/div/div/div/div[2]')
-        self.SAVE_NEW_PASSWORD_BUTTON = self.page.locator('//*[@id="root"]/div/div/div/form/button')
 
 
     def click_login_button(self):
@@ -115,39 +105,6 @@ class LoginPage(BasePage):
     def click_on_privacy_policy_button(self):
         self.PRIVACY_POLICY_LINK.click()
 
-
-    #forgot password page
-    def find_forgot_password_title(self):
-        expect(self.FORGOT_PASSWORD_TITLE).to_be_visible()
-
-    def click_on_forgot_password_title(self):
-        self.FORGOT_PASSWORD_TITLE.click()
-
-    def fill_forgot_password_email_field(self, email):
-        self.FORGOT_EMAIL_FIELD.fill(email)
-
-    def click_on_reset_password_button(self):
-        self.RESET_PASSWORD_BUTTON.click()
-
-    def find_post_reset_password_text(self):
-        expect(self.POST_RESET_PASSWORD_TEXT).to_be_visible()
-
-    def click_on_enter_email_text(self):
-        self.ENTER_EMAIL_TEXT.click()
-
-    #create new password page
-    def fill_new_password_field(self, password):
-        self.NEW_PASSWORD_FIELD.fill(password)
-
-    def fill_confirm_password_field(self, password):
-        self.CONFIRM_NEW_PASSWORD_FIELD.fill(password)
-
-    def find_create_new_password_title(self):
-        expect(self.CREATE_NEW_PASSWORD_TITLE).to_be_visible()
-
-    def click_on_enter_new_password_text(self):
-        self.ENTER_NEW_PASSWORD_TEXT.click()
-
-    def click_on_save_new_password_button(self):
-        self.SAVE_NEW_PASSWORD_BUTTON.click()
-        time.sleep(2)
+    #account_info page
+    def search_account_info_logo(self):
+        expect(self.ACCOUNT_INFO_LOGO).to_be_visible()

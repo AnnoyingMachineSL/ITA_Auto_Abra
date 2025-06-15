@@ -9,6 +9,7 @@ class AbraLoginConfig:
     LOGIN = 'runn1k195@gmail.com'
     PASSWORD = 'QWE123!qwe123'
     FORGOT_PASSWORD_URL = 'https://dev.abra-market.com/forgot_password'
+    NEW_PASSWORD = 'QWEqwe123!'
 
 
 class AbraRegistrationConfig:
