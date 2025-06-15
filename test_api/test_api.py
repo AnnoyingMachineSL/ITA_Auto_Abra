@@ -9,7 +9,7 @@ from client.client_email import EmailClient
 from client.postgres_client import PostgresClient
 from utils.config import APILogin
 from models.models import LoginModel, LoginResponseModel, RegistrationResponseModel, NegativeLoginResponseModel, \
-    NegativeRegistrationResponseModel, ConfirmEmailResponse
+    NegativeRegistrationResponseModel, ConfirmEmailResponse, ChangePasswordRequest, ChangePasswordResponse
 from utils import generator
 import psycopg2
 
@@ -58,7 +58,7 @@ class TestApi:
 
         #with allure.step('Check created user on db'):
         #     PostgresClient().get_user(email=random_email.lower(), is_deleted=False, is_verified=False)
-        return response
+        return response, random_password, token
 
 
 @allure.title('[Negative] Api Tests')
@@ -95,3 +95,17 @@ class TestApiNegative:
                                              expected_model=NegativeRegistrationResponseModel(),
                                              user_type=user_type, status_code=status_code)
         return response
+
+    # @allure.title('[Api test] Change password')
+    # @pytest.mark.positive
+    # @pytest.mark.API
+    # @allure.severity(allure.severity_level.NORMAL)
+    # def test_change_password(self):
+    #     _, random_password, token = TestApi().test_registration(user_type='seller')
+    #     change_password_model = ChangePasswordRequest(old_password= random_password,
+    #                                                   new_password='ZXCzxc123!')
+    #     response = Client().change_password(request=change_password_model,
+    #                                         expected_model=ChangePasswordResponse(),
+    #                                         token=token,
+    #                                         status_code=200)
+    #     print(response)

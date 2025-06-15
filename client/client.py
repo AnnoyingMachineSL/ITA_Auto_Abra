@@ -3,7 +3,7 @@ from typing import Union
 import allure
 import requests
 from models.models import LoginModel, LoginResponseModel, RegistrationResponseModel, NegativeLoginResponseModel, \
-    NegativeRegistrationResponseModel
+    NegativeRegistrationResponseModel, ChangePasswordRequest, ChangePasswordResponse
 from utils.validate_response import ValidateResponse
 # from dotenv import load_dotenv
 
@@ -47,3 +47,14 @@ class Client(ClientApi):
     def confirm_email(self, token: str, expected_model, status_code = 200):
         response = self.request(method='get', url=f'/auth/sign-up/confirmEmail?token={token}')
         return ValidateResponse.validate_response(response=response, model=expected_model, status_code=status_code)
+
+    # @allure.step('POST /user/password/change')
+    # def change_password(self, request: ChangePasswordRequest,
+    #                     expected_model: ChangePasswordResponse,
+    #                     token: str,
+    #                     status_code=200):
+    #     headers = dict(access_token_cookie=token)
+    #     response = self.request(method='post', url='/users/password/change', headers=headers, json=request.model_dump())
+    #     return response.json()
+    #     #return ValidateResponse.validate_response(response=response, model=expected_model, status_code=status_code)
+
