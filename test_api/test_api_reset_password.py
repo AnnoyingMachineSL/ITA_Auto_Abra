@@ -17,7 +17,7 @@ class TestResetPassword:
     @allure.severity(allure.severity_level.NORMAL)
     @pytest.mark.parametrize('registration_new_account', ['seller', 'supplier'], indirect=True)
     @pytest.mark.parametrize('new_password', ['ZXCzxc123!'])
-    def test_reset_password(self, registration_new_account, new_password: str):
+    def test_api_reset_password(self, registration_new_account, new_password: str):
         with allure.step('Create new account'):
             random_email, random_password = registration_new_account
 
@@ -47,7 +47,7 @@ class TestResetPasswordNegative:
     @pytest.mark.parametrize('registration_new_account', ['seller', 'supplier'], indirect=True)
     @pytest.mark.parametrize('new_password, confirm_password',
                              [('ZXCzxc123!', ''), ('', ''), ('', 'ZXCzxc123!'), ('qwe123@', 'qwe123@')])
-    def test_reset_password_negative(self, registration_new_account, new_password: str, confirm_password: str):
+    def test_api_reset_password_negative(self, registration_new_account, new_password: str, confirm_password: str):
         with allure.step('Create new account'):
             random_email, random_password = registration_new_account
 

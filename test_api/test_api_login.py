@@ -16,7 +16,7 @@ class TestApiLogin:
     @allure.severity(allure.severity_level.CRITICAL)
     @pytest.mark.parametrize('email', [APILogin.LOGIN])
     @pytest.mark.parametrize('password', [APILogin.PASSWORD])
-    def test_login(self, email: str, password: str):
+    def test_api_login(self, email: str, password: str):
         with allure.step(f'Create LoginModel by email:{email}'):
             login_model = LoginModel(email=email, password=password)
 
@@ -35,7 +35,7 @@ class TestApiLoginNegative:
     @allure.severity(allure.severity_level.CRITICAL)
     @pytest.mark.parametrize('email', ['', '!@#', '@mail.com', 'qwe@qwe'])
     @pytest.mark.parametrize('password', ['', 'a', 'zxc', '123123'])
-    def test_login_negative(self, email: str, password: str):
+    def test_api_login_negative(self, email: str, password: str):
         with allure.step(f'Create LoginModel by email:{email}'):
             login_model = LoginModel(email=email, password=password)
 
