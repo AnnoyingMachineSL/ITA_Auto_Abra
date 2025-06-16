@@ -36,18 +36,18 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "AnnoyingMachineSL"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;AnnoyingMachineSL&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/AnnoyingMachineSL/ITA_Auto_Abra.git",
-    "accountId": "a7700746-a59e-44d3-bc61-02619bfe7094"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/AnnoyingMachineSL/ITA_Auto_Abra.git&quot;,
+    &quot;accountId&quot;: &quot;a7700746-a59e-44d3-bc61-02619bfe7094&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
 }</component>
@@ -57,27 +57,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python tests.Python tests for test_api.TestApi.executor": "Run",
-    "Python tests.Python tests for test_api.TestApi.test_login.executor": "Run",
-    "Python tests.Python tests for test_api.TestApi.test_registration.executor": "Run",
-    "Python tests.Python tests for test_api.TestApiNegative.executor": "Run",
-    "Python tests.Python tests for test_api.TestApiNegative.test_negative_login_incorrect_data.executor": "Run",
-    "Python tests.Python tests for test_api.TestApiNegative.test_negative_registration.executor": "Run",
-    "Python tests.Python tests for test_login.TestLogin.executor": "Run",
-    "Python tests.Python tests for test_login.TestLogin.test_login.executor": "Run",
-    "Python tests.Python tests for test_registration.TestRegistration.executor": "Run",
-    "Python tests.Python tests for test_registration.TestRegistration.test_registration.executor": "Run",
-    "Python.client_email.executor": "Run",
-    "Python.generator.executor": "Run",
-    "Python.test_api.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "Custom-temporary-email",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python tests.Python tests for test_api.TestApi.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_api.TestApi.test_login.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_api.TestApi.test_registration.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_api.TestApiNegative.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_api.TestApiNegative.test_negative_login_incorrect_data.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_api.TestApiNegative.test_negative_registration.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_login.TestLogin.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_login.TestLogin.test_login.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_registration.TestRegistration.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_registration.TestRegistration.test_registration.executor&quot;: &quot;Run&quot;,
+    &quot;Python.client_email.executor&quot;: &quot;Run&quot;,
+    &quot;Python.generator.executor&quot;: &quot;Run&quot;,
+    &quot;Python.test_api.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Custom-temporary-email&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Python tests.Python tests for test_api.TestApi.test_registration">
     <configuration name="client_email" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="ITA_Auto_Abra" />
