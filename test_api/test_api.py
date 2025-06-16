@@ -9,7 +9,7 @@ from client.client_email import EmailClient
 from client.postgres_client import PostgresClient
 from utils.config import APILogin
 from models.models import LoginModel, LoginResponseModel, RegistrationResponseModel, NegativeLoginResponseModel, \
-    NegativeRegistrationResponseModel, ConfirmEmailToken
+    NegativeRegistrationResponseModel, ConfirmEmailResponse, ChangePasswordRequest, ChangePasswordResponse
 from utils import generator
 import psycopg2
 
@@ -29,7 +29,6 @@ class TestApi:
         with allure.step(f'Log in by models: {login_model} and {LoginResponseModel}'):
             response = Client().login(request=login_model, expected_model=LoginResponseModel())
 
-        PostgresClient().get_user(email=email, is_deleted=False, is_verified=True)
         return response
 
     @allure.title('[Api test] Registration')
@@ -38,24 +37,28 @@ class TestApi:
     @allure.severity(allure.severity_level.CRITICAL)
     @pytest.mark.parametrize('user_type', ['seller', 'supplier'])
     def test_registration(self, user_type: str):
-        #random_email = generator.random_email()
-        random_email = generator.random_temporary_email()
-        random_password = generator.random_password()
+        with allure.step('Create test data to registration'):
+            random_email = generator.random_temporary_email()
+            random_password = generator.random_password()
 
-        email_client = EmailClient(temporary_email=random_email)
+        with allure.step(f'Create temporary email by email {random_email}'):
+            email_client = EmailClient(temporary_email=random_email)
 
         with allure.step(f'Create RegistrationModel by email:{random_email} and password {random_password}'):
             registration_model = LoginModel(email=random_email, password=random_password)
+
         with allure.step(f'Registration by models: {registration_model} and {RegistrationResponseModel}'):
             response = Client().registration(request=registration_model, expected_model=RegistrationResponseModel(),
                                              user_type=user_type, status_code=200)
-        time.sleep(3)
-        token = email_client.get_registration_token()
-        confirm_email_response, confirm_email_status_code = Client().confirm_email(token=token)
+        with allure.step('Get user token'):
+            token = email_client.get_registration_token()
 
-        # if confirm_email_status_code == 200:
+        with allure.step('Confirm email by user token'):
+            confirm_email_response = Client().confirm_email(token=token, expected_model=ConfirmEmailResponse())
+
+        #with allure.step('Check created user on db'):
         #     PostgresClient().get_user(email=random_email.lower(), is_deleted=False, is_verified=False)
-        return response
+        return response, random_password, token
 
 
 @allure.title('[Negative] Api Tests')
@@ -92,3 +95,17 @@ class TestApiNegative:
                                              expected_model=NegativeRegistrationResponseModel(),
                                              user_type=user_type, status_code=status_code)
         return response
+
+    # @allure.title('[Api test] Change password')
+    # @pytest.mark.positive
+    # @pytest.mark.API
+    # @allure.severity(allure.severity_level.NORMAL)
+    # def test_change_password(self):
+    #     _, random_password, token = TestApi().test_registration(user_type='seller')
+    #     change_password_model = ChangePasswordRequest(old_password= random_password,
+    #                                                   new_password='ZXCzxc123!')
+    #     response = Client().change_password(request=change_password_model,
+    #                                         expected_model=ChangePasswordResponse(),
+    #                                         token=token,
+    #                                         status_code=200)
+    #     print(response)

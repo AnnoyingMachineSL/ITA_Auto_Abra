@@ -14,3 +14,9 @@ class BasePage:
 
     def get_back(self):
         self.page.go_back()
+
+    def correct_direction(self, target_url):
+        assert self.page.url == target_url
+
+    def make_screenshot(self, save_name):
+        self.page.screenshot(path=save_name)

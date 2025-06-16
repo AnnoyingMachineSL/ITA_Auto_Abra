@@ -4,17 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="74526a0b-dfcd-40d9-b7e9-46a51870113f" name="Changes" comment="new credits">
-      <change afterPath="$PROJECT_DIR$/client/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/client.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/postgres_client.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="74526a0b-dfcd-40d9-b7e9-46a51870113f" name="Changes" comment="Add new tests:&#10;- search elements in login page&#10;- search elements in registration page&#10;- following to links in login and registration pages&#10;- reset password">
+      <change afterPath="$PROJECT_DIR$/pages/account_info_page.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/create_new_password_page.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/forgor_password_page.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/client.py" beforeDir="false" afterPath="$PROJECT_DIR$/Client/client.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/client_email.py" beforeDir="false" afterPath="$PROJECT_DIR$/Client/client_email.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/client.py" beforeDir="false" afterPath="$PROJECT_DIR$/client/client.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/login_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/login_page.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test_api/test_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_api/test_api.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/valdate_response.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/validate_response.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_ui/test_reset_password.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_ui/test_reset_password.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/config.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,25 +29,8 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="master" />
-      </map>
-    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;AnnoyingMachineSL&quot;
-  }
-}</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/AnnoyingMachineSL/ITA_Auto_Abra.git&quot;,
-    &quot;accountId&quot;: &quot;a7700746-a59e-44d3-bc61-02619bfe7094&quot;
-  }
-}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
 }</component>
@@ -57,73 +40,45 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python tests.Python tests for test_api.TestApi.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.Python tests for test_api.TestApi.test_login.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.Python tests for test_api.TestApi.test_registration.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.Python tests for test_api.TestApiNegative.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.Python tests for test_api.TestApiNegative.test_negative_login_incorrect_data.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.Python tests for test_api.TestApiNegative.test_negative_registration.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.Python tests for test_login.TestLogin.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.Python tests for test_login.TestLogin.test_login.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.Python tests for test_registration.TestRegistration.executor&quot;: &quot;Run&quot;,
-    &quot;Python tests.Python tests for test_registration.TestRegistration.test_registration.executor&quot;: &quot;Run&quot;,
-    &quot;Python.client_email.executor&quot;: &quot;Run&quot;,
-    &quot;Python.generator.executor&quot;: &quot;Run&quot;,
-    &quot;Python.test_api.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Custom-temporary-email&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python tests.Python tests for test_api.TestApi.executor": "Run",
+    "Python tests.Python tests for test_api.TestApi.test_login.executor": "Run",
+    "Python tests.Python tests for test_api.TestApi.test_registration.executor": "Run",
+    "Python tests.Python tests for test_api.TestApiNegative.executor": "Run",
+    "Python tests.Python tests for test_api.TestApiNegative.test_change_password.executor": "Run",
+    "Python tests.Python tests for test_api.TestApiNegative.test_negative_login_incorrect_data.executor": "Run",
+    "Python tests.Python tests for test_api.TestApiNegative.test_negative_registration.executor": "Run",
+    "Python tests.Python tests for test_following_links_from_login_page.TestFollowingLinksFromLoginPage.test_following_to_forgot_password_page.executor": "Run",
+    "Python tests.Python tests for test_following_links_from_login_page.TestFollowingLinksFromLoginPage.test_following_to_privacy_policy_page.executor": "Run",
+    "Python tests.Python tests for test_following_links_from_login_page.TestFollowingLinksFromLoginPage.test_following_to_registration_page.executor": "Run",
+    "Python tests.Python tests for test_following_links_from_login_page.TestFollowingLinksFromLoginPage.test_following_to_terms_and_conditions_page.executor": "Run",
+    "Python tests.Python tests for test_following_links_from_registration_page.TestFollowingLinksFromRegistrationPage.executor": "Run",
+    "Python tests.Python tests for test_following_links_from_registration_page.TestFollowingLinksFromRegistrationPage.test_following_to_privacy_policy_page.executor": "Run",
+    "Python tests.Python tests for test_following_links_from_registration_page.TestFollowingLinksFromRegistrationPage.test_following_to_terms_and_conditions_page.executor": "Run",
+    "Python tests.Python tests for test_following_links_from_registration_page.TestSearchRegistrationElements.test_search_registration_page_elements.executor": "Run",
+    "Python tests.Python tests for test_login.TestLogin.executor": "Run",
+    "Python tests.Python tests for test_login.TestLogin.test_login.executor": "Run",
+    "Python tests.Python tests for test_login.TestLoginNegative.test_login_negative.executor": "Run",
+    "Python tests.Python tests for test_registration.TestRegistration.executor": "Run",
+    "Python tests.Python tests for test_registration.TestRegistration.test_registration.executor": "Run",
+    "Python tests.Python tests for test_registration.TestRegistrationNegative.test_registration_incorrect_data.executor": "Run",
+    "Python tests.Python tests for test_reset_password.TestResetPassword.test_registration.executor": "Run",
+    "Python tests.Python tests for test_reset_password.TestResetPassword.test_reset_password.executor": "Run",
+    "Python tests.Python tests for test_search_login_page_elements.TestSearchLoginPageElements.test_search_login_page_elements.executor": "Run",
+    "Python tests.Python tests for test_search_registration_page_elements.TestSearchRegistrationElements.test_registration.executor": "Run",
+    "Python tests.Python tests for test_search_registration_page_elements.TestSearchRegistrationElements.test_search_registration_page_elements.executor": "Run",
+    "Python.client_email.executor": "Run",
+    "Python.generator.executor": "Run",
+    "Python.test_api.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "Custom-temporary-email",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
-  <component name="RunManager" selected="Python tests.Python tests for test_api.TestApi.test_registration">
-    <configuration name="client_email" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="ITA_Auto_Abra" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Client" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Client/client_email.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="generator" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="ITA_Auto_Abra" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/utils" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/utils/generator.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Python tests for test_api.TestApi.test_registration" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+}]]></component>
+  <component name="RunManager" selected="Python tests.Python tests for test_api.TestApiNegative.test_change_password">
+    <configuration name="Python tests for test_api.TestApiNegative.test_change_password" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="ITA_Auto_Abra" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -134,11 +89,11 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_api.TestApi.test_registration&quot;" />
+      <option name="_new_target" value="&quot;test_api.TestApiNegative.test_change_password&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Python tests for test_registration.TestRegistration" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+    <configuration name="Python tests for test_following_links_from_login_page.TestFollowingLinksFromLoginPage.test_following_to_privacy_policy_page" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="ITA_Auto_Abra" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -149,11 +104,11 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_registration.TestRegistration&quot;" />
+      <option name="_new_target" value="&quot;test_following_links_from_login_page.TestFollowingLinksFromLoginPage.test_following_to_privacy_policy_page&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Python tests for test_registration.TestRegistration.test_registration" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+    <configuration name="Python tests for test_following_links_from_login_page.TestFollowingLinksFromLoginPage.test_following_to_terms_and_conditions_page" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="ITA_Auto_Abra" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -164,24 +119,54 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_registration.TestRegistration.test_registration&quot;" />
+      <option name="_new_target" value="&quot;test_following_links_from_login_page.TestFollowingLinksFromLoginPage.test_following_to_terms_and_conditions_page&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for test_reset_password.TestResetPassword.test_registration" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="ITA_Auto_Abra" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test_ui" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_reset_password.TestResetPassword.test_registration&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for test_reset_password.TestResetPassword.test_reset_password" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="ITA_Auto_Abra" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test_ui" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_reset_password.TestResetPassword.test_reset_password&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python tests.Python tests for test_api.TestApi.test_registration" />
-        <item itemvalue="Python.client_email" />
-        <item itemvalue="Python.generator" />
-        <item itemvalue="Python tests.Python tests for test_registration.TestRegistration.test_registration" />
-        <item itemvalue="Python tests.Python tests for test_registration.TestRegistration" />
+        <item itemvalue="Python tests.Python tests for test_api.TestApiNegative.test_change_password" />
+        <item itemvalue="Python tests.Python tests for test_reset_password.TestResetPassword.test_reset_password" />
+        <item itemvalue="Python tests.Python tests for test_reset_password.TestResetPassword.test_registration" />
+        <item itemvalue="Python tests.Python tests for test_following_links_from_login_page.TestFollowingLinksFromLoginPage.test_following_to_privacy_policy_page" />
+        <item itemvalue="Python tests.Python tests for test_following_links_from_login_page.TestFollowingLinksFromLoginPage.test_following_to_terms_and_conditions_page" />
       </list>
     </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-d7ad00fb9fc3-c546a90a8094-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-242.23726.102" />
+        <option value="bundled-python-sdk-eebebe6c2be4-d3b881c8e49f-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-233.15325.20" />
       </set>
     </attachedChunks>
   </component>
@@ -234,7 +219,63 @@
       <option name="project" value="LOCAL" />
       <updated>1748785023203</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="cut user search in db">
+      <option name="closed" value="true" />
+      <created>1749663480288</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1749663480288</updated>
+    </task>
+    <task id="LOCAL-00007" summary="add allure steps&#10;add ConfirmEmail data model">
+      <option name="closed" value="true" />
+      <created>1749665187358</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1749665187358</updated>
+    </task>
+    <task id="LOCAL-00008" summary="cut ConfirmTokenModel">
+      <option name="closed" value="true" />
+      <created>1749665299469</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1749665299469</updated>
+    </task>
+    <task id="LOCAL-00009" summary="add time to check token">
+      <option name="closed" value="true" />
+      <created>1749665631357</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1749665631357</updated>
+    </task>
+    <task id="LOCAL-00010" summary="add negative UI login and registration test">
+      <option name="closed" value="true" />
+      <created>1749745351424</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1749745351424</updated>
+    </task>
+    <task id="LOCAL-00011" summary="add some corrections">
+      <option name="closed" value="true" />
+      <created>1749745443716</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1749745443716</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Add new tests:&#10;- search elements in login page&#10;- search elements in registration page&#10;- following to links in login and registration pages&#10;- reset password">
+      <option name="closed" value="true" />
+      <created>1749935127904</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1749935127904</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -243,6 +284,13 @@
     <MESSAGE value="Add ui" />
     <MESSAGE value="Add ui tests and checks info in bd" />
     <MESSAGE value="new credits" />
-    <option name="LAST_COMMIT_MESSAGE" value="new credits" />
+    <MESSAGE value="cut user search in db" />
+    <MESSAGE value="add allure steps&#10;add ConfirmEmail data model" />
+    <MESSAGE value="cut ConfirmTokenModel" />
+    <MESSAGE value="add time to check token" />
+    <MESSAGE value="add negative UI login and registration test" />
+    <MESSAGE value="add some corrections" />
+    <MESSAGE value="Add new tests:&#10;- search elements in login page&#10;- search elements in registration page&#10;- following to links in login and registration pages&#10;- reset password" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add new tests:&#10;- search elements in login page&#10;- search elements in registration page&#10;- following to links in login and registration pages&#10;- reset password" />
   </component>
 </project>
