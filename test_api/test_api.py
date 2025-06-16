@@ -9,7 +9,8 @@ from client.client_email import EmailClient
 from client.postgres_client import PostgresClient
 from utils.config import APILogin
 from models.models import LoginModel, LoginResponseModel, RegistrationResponseModel, NegativeLoginResponseModel, \
-    NegativeRegistrationResponseModel, ConfirmEmailResponse, ChangePasswordRequest, ChangePasswordResponse
+    NegativeRegistrationResponseModel, ConfirmEmailResponse, ResetPasswordRequest, ForgotPasswordResponse, \
+    ResetPasswordNegativeResponse
 from utils import generator
 import psycopg2
 
@@ -56,9 +57,38 @@ class TestApi:
         with allure.step('Confirm email by user token'):
             confirm_email_response = Client().confirm_email(token=token, expected_model=ConfirmEmailResponse())
 
-        #with allure.step('Check created user on db'):
+        # with allure.step('Check created user on db'):
         #     PostgresClient().get_user(email=random_email.lower(), is_deleted=False, is_verified=False)
-        return response, random_password, token
+        return random_email, random_password
+
+    @allure.title('[Api test] Reset forgotten password')
+    @pytest.mark.positive
+    @pytest.mark.API
+    @allure.severity(allure.severity_level.NORMAL)
+    @pytest.mark.parametrize('user_type', ['seller', 'supplier'])
+    @pytest.mark.parametrize('new_password', ['ZXCzxc123!'])
+    def test_change_password(self, user_type: str, new_password: str):
+        with allure.step('Create new account'):
+            random_email, random_password = self.test_registration(user_type=user_type)
+
+        with allure.step('Make response about forgot password'):
+            forgot_password_response_model = ForgotPasswordResponse()
+            forgot_password_response = Client().forgot_password(email=random_email,
+                                                                expected_model=forgot_password_response_model,
+                                                                status_code=200)
+        with allure.step('Get token for reset password'):
+            forgot_password_token = EmailClient(temporary_email=random_email).get_change_password_token()
+
+        with allure.step('Make model to reset password'):
+            reset_password_request_model = ResetPasswordRequest(new_password=new_password,
+                                                                confirm_password=new_password)
+
+        with allure.step('Make request to change password'):
+            reset_password_response = Client().reset_password(token=forgot_password_token,
+                                                              request=reset_password_request_model,
+                                                              expected_model=ForgotPasswordResponse(),
+                                                              status_code=200)
+        return reset_password_response
 
 
 @allure.title('[Negative] Api Tests')
@@ -96,16 +126,32 @@ class TestApiNegative:
                                              user_type=user_type, status_code=status_code)
         return response
 
-    # @allure.title('[Api test] Change password')
-    # @pytest.mark.positive
-    # @pytest.mark.API
-    # @allure.severity(allure.severity_level.NORMAL)
-    # def test_change_password(self):
-    #     _, random_password, token = TestApi().test_registration(user_type='seller')
-    #     change_password_model = ChangePasswordRequest(old_password= random_password,
-    #                                                   new_password='ZXCzxc123!')
-    #     response = Client().change_password(request=change_password_model,
-    #                                         expected_model=ChangePasswordResponse(),
-    #                                         token=token,
-    #                                         status_code=200)
-    #     print(response)
+    @allure.title('[Api test] Reset forgotten password')
+    @pytest.mark.negative
+    @pytest.mark.API
+    @allure.severity(allure.severity_level.NORMAL)
+    @pytest.mark.parametrize('user_type', ['seller', 'supplier'])
+    @pytest.mark.parametrize('new_password, confirm_password',
+                             [('ZXCzxc123!', ''), ('', ''), ('', 'ZXCzxc123!'), ('qwe123@', 'qwe123@')])
+    def test_change_password_negative(self, user_type: str, new_password: str, confirm_password: str):
+        with allure.step('Create new account'):
+            random_email, random_password = TestApi().test_registration(user_type=user_type)
+
+        with allure.step('Make response about forgot password'):
+            forgot_password_response_model = ForgotPasswordResponse()
+            forgot_password_response = Client().forgot_password(email=random_email,
+                                                                expected_model=forgot_password_response_model,
+                                                                status_code=200)
+        with allure.step('Get token for reset password'):
+            forgot_password_token = EmailClient(temporary_email=random_email).get_change_password_token()
+
+        with allure.step('Make model to reset password'):
+            reset_password_request_model = ResetPasswordRequest(new_password=new_password,
+                                                                confirm_password=confirm_password)
+
+        with allure.step('Make request to change password'):
+            reset_password_response = Client().reset_password(token=forgot_password_token,
+                                                              request=reset_password_request_model,
+                                                              expected_model=ResetPasswordNegativeResponse(),
+                                                              status_code=422)
+        return reset_password_response
