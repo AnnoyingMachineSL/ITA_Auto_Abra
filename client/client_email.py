@@ -49,3 +49,6 @@ class EmailClient(ClientEmail):
 
     def get_reset_password_link(self):
         return self.get_first_message()['html'].split('href="')[1].split('">')[0]
+
+    def get_change_password_token(self):
+        return self.get_first_message()['html'].split('href="')[1].split('">')[0].split('token=')[1]
