@@ -4,14 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="74526a0b-dfcd-40d9-b7e9-46a51870113f" name="Changes" comment="- add Api test reset forgotten password">
-      <change afterPath="$PROJECT_DIR$/test_api/conftest.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_api/test_api_login.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_api/test_api_registration.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_api/test_api_reset_password.py" afterDir="false" />
+    <list default="true" id="74526a0b-dfcd-40d9-b7e9-46a51870113f" name="Changes" comment="- separation api tests for new files&#10;- add registration fixture">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_api/test_api.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_ui/conftest.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_ui/conftest.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_api/test_api_login.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_api/test_api_login.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_api/test_api_registration.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_api/test_api_registration.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_api/test_api_reset_password.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_api/test_api_reset_password.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -297,7 +294,15 @@
       <option name="project" value="LOCAL" />
       <updated>1750092231843</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="- separation api tests for new files&#10;- add registration fixture">
+      <option name="closed" value="true" />
+      <created>1750097031374</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1750097031374</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -315,6 +320,7 @@
     <MESSAGE value="Add new tests:&#10;- search elements in login page&#10;- search elements in registration page&#10;- following to links in login and registration pages&#10;- reset password" />
     <MESSAGE value="rewrite reset_password test" />
     <MESSAGE value="- add Api test reset forgotten password" />
-    <option name="LAST_COMMIT_MESSAGE" value="- add Api test reset forgotten password" />
+    <MESSAGE value="- separation api tests for new files&#10;- add registration fixture" />
+    <option name="LAST_COMMIT_MESSAGE" value="- separation api tests for new files&#10;- add registration fixture" />
   </component>
 </project>

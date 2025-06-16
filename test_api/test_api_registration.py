@@ -17,7 +17,7 @@ class TestRegistration:
     @pytest.mark.API
     @allure.severity(allure.severity_level.CRITICAL)
     @pytest.mark.parametrize('user_type', ['seller', 'supplier'])
-    def test_registration(self, user_type: str):
+    def test_api_registration(self, user_type: str):
         with allure.step('Create test data to registration'):
             random_email = generator.random_temporary_email()
             random_password = generator.random_password()
@@ -54,8 +54,8 @@ class TestRegistrationNegative:
     @pytest.mark.parametrize('email', ['', '!@#', '@mail.com', 'qwe@qwe'])
     @pytest.mark.parametrize('password', ['', 'a', 'zxc', '123123'])
     @pytest.mark.parametrize('user_type', ['seller', 'supplier'])
-    def test_negative_registration(self, email: str, password: str,
-                                   user_type: str, status_code: int = 422):
+    def test_api_negative_registration(self, email: str, password: str,
+                                       user_type: str, status_code: int = 422):
         with allure.step(f'Create RegistrationModel by email:{email} and password {password}'):
             registration_model = LoginModel(email=email, password=password)
 
