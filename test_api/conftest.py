@@ -9,7 +9,8 @@ from utils import generator
 
 
 @pytest.fixture
-def registration_new_account(user_type: str):
+def registration_new_account(request):
+    user_type = request.param
     random_email = generator.random_temporary_email()
     random_password = generator.random_password()
     email_client = EmailClient(temporary_email=random_email)

@@ -51,14 +51,18 @@ class ConfirmEmailResponse(BaseModel):
     result: Optional[bool] = True
 
 
-class ChangePasswordRequest(BaseModel):
-    old_password: Optional[str]
+class ResetPasswordRequest(BaseModel):
     new_password: Optional[str]
+    confirm_password: Optional[str]
 
 
-class ChangePasswordResponse(BaseModel):
+class ForgotPasswordResponse(BaseModel):
     ok: Optional[bool] = True
     result: Optional[bool] = True
     detail: Optional[str] = ''
     error: Optional[str] = ''
     error_code: Optional[int] = 0
+
+
+class ResetPasswordNegativeResponse(BaseModel):
+    detail: Optional[list[NegativeLoginModelComponents]] = None
