@@ -3,14 +3,25 @@ from typing import Union
 import allure
 import requests
 from models.models import LoginModel, LoginResponseModel, RegistrationResponseModel, NegativeLoginResponseModel, \
+<<<<<<< HEAD
     NegativeRegistrationResponseModel, ConfirmEmailToken
 from utils.validate_response import ValidateResponse
+=======
+    NegativeRegistrationResponseModel, ResetPasswordRequest, ForgotPasswordResponse, ResetPasswordNegativeResponse
+from utils.validate_response import ValidateResponse
+
+
+>>>>>>> origin/master
 # from dotenv import load_dotenv
 
 
 class ClientApi:
     def __init__(self):
+<<<<<<< HEAD
         self.base_url = 'https://api.dev.abra-market.com'
+=======
+        self.base_url = 'https://test.abra-market.com'
+>>>>>>> origin/master
         self.session = self._initialize_session()
 
     @staticmethod
@@ -44,6 +55,25 @@ class Client(ClientApi):
         return ValidateResponse.validate_response(response=response, model=expected_model, status_code=status_code)
 
     @allure.step('GET /auth/sign-up/confirmEmail')
+<<<<<<< HEAD
     def confirm_email(self, token: str, expected_model, status_code = 200):
         response = self.request(method='get', url=f'/auth/sign-up/confirmEmail?token={token}')
         return ValidateResponse.validate_response(response=response, model=expected_model, status_code=status_code)
+=======
+    def confirm_email(self, token: str, expected_model, status_code=200):
+        response = self.request(method='get', url=f'/auth/sign-up/confirmEmail?token={token}')
+        return ValidateResponse.validate_response(response=response, model=expected_model, status_code=status_code)
+
+    @allure.step('POST /users/password/forgot')
+    def forgot_password(self, email: str, expected_model, status_code=200):
+        response = self.request(method='post', url=f'/users/password/forgot?email={email}')
+        return ValidateResponse.validate_response(response=response, model=expected_model, status_code=status_code)
+
+    @allure.step('POST /users/password/reset')
+    def reset_password(self, token: str,
+                       request: ResetPasswordRequest,
+                       expected_model: Union[ForgotPasswordResponse, ResetPasswordNegativeResponse],
+                       status_code=200):
+        response = self.request(method='post', url=f'/users/password/reset?token={token}', json=request.model_dump())
+        return ValidateResponse.validate_response(response=response, model=expected_model, status_code=status_code)
+>>>>>>> origin/master
