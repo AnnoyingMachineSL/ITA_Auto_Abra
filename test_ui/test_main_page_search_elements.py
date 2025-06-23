@@ -169,5 +169,5 @@ class TestSearchLoginPageElements:
         with allure.step('Search privacy policy button'):
             main_page.search_privacy_policy_button()
 
-        # with allure.step('Search question window'):
-        #     main_page.search_question_window()
+        with allure.step('Search question window'):
+            main_page.search_question_window()
