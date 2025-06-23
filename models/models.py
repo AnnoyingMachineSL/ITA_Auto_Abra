@@ -24,7 +24,6 @@ class LoginModel(BaseModel):
 
 
 # Response models
-
 class LoginResponseModel(BaseModel):
     ok: Optional[bool] = True
     result: Optional[bool] = True
@@ -46,7 +45,24 @@ class NegativeRegistrationResponseModel(BaseModel):
     detail: Optional[list] = [NegativeLoginModelComponents, NegativeRegistrationModelSecondComponents]
 
 
+# Confirm email response model
+class ConfirmEmailResponse(BaseModel):
+    ok: Optional[bool] = True
+    result: Optional[bool] = True
 
-# Confirm email
-class ConfirmEmailToken(BaseModel):
-    token: Optional[str]
+
+class ResetPasswordRequest(BaseModel):
+    new_password: Optional[str]
+    confirm_password: Optional[str]
+
+
+class ForgotPasswordResponse(BaseModel):
+    ok: Optional[bool] = True
+    result: Optional[bool] = True
+    detail: Optional[str] = ''
+    error: Optional[str] = ''
+    error_code: Optional[int] = 0
+
+
+class ResetPasswordNegativeResponse(BaseModel):
+    detail: Optional[list[NegativeLoginModelComponents]] = None

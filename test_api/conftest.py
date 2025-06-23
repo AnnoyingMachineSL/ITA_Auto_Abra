@@ -2,7 +2,7 @@ import allure
 import playwright
 import pytest
 
-from client.client import Client
+from  client.client import Client
 from client.client_email import EmailClient
 from models.models import ConfirmEmailResponse, RegistrationResponseModel, LoginModel
 from utils import generator
