@@ -17,6 +17,7 @@ class TestApiLogin:
     @pytest.mark.parametrize('email', [APILogin.LOGIN])
     @pytest.mark.parametrize('password', [APILogin.PASSWORD])
     def test_api_login(self, email: str, password: str):
+
         with allure.step(f'Create LoginModel by email:{email}'):
             login_model = LoginModel(email=email, password=password)
 

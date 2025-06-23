@@ -12,7 +12,7 @@ from utils.validate_response import ValidateResponse
 
 class ClientApi:
     def __init__(self):
-        self.base_url = 'https://api.dev.abra-market.com'
+        self.base_url = 'https://test.abra-market.com'
         self.session = self._initialize_session()
 
     @staticmethod
