@@ -1,6 +1,8 @@
 import time
 from pages.base_page import BasePage
 from playwright.sync_api import expect
+import random
+
 
 class MainPage(BasePage):
 
@@ -16,8 +18,10 @@ class MainPage(BasePage):
         self.CONTACT_SUPPORT_BUTTON = self.page.locator('//*[@id="root"]/div/div/header/div[2]/div[2]/ul/li[4]/a')
         self.FAQ_BUTTON = self.page.locator('//*[@id="root"]/div/div/header/div[2]/div[2]/ul/li[5]/a')
         self.ABOUT_US_BUTTON = self.page.locator('//*[@id="root"]/div/div/header/div[2]/div[2]/ul/li[6]/a')
-        self.CHANGE_LANGUAGE_BUTTON = self.page.locator('//*[@id="root"]/div/div/header/div[2]/div[3]/div/div[1]/div/div')
-        self.CHANGE_LOCATION_BUTTON = self.page.locator('//*[@id="root"]/div/div/header/div[2]/div[3]/div/div[2]/div/div')
+        self.CHANGE_LANGUAGE_BUTTON = self.page.locator(
+            '//*[@id="root"]/div/div/header/div[2]/div[3]/div/div[1]/div/div')
+        self.CHANGE_LOCATION_BUTTON = self.page.locator(
+            '//*[@id="root"]/div/div/header/div[2]/div[3]/div/div[2]/div/div')
         self.MAIN_IMAGE = self.page.locator('//*[@id="root"]/div/div/main/div/div[1]/div[1]/div/img')
         self.FIRST_BLOCK_IMAGE = self.page.locator('//*[@id="root"]/div/div/main/div/div[1]/div[2]/div/div[1]/div/img')
         self.SECOND_BLOCK_IMAGE = self.page.locator('//*[@id="root"]/div/div/main/div/div[1]/div[2]/div/div[2]/div/img')
@@ -28,14 +32,20 @@ class MainPage(BasePage):
         self.HOT_DEALS_BUTTON = self.page.locator('//*[@id="root"]/div/div/main/div/div[2]/div/div[3]/button')
 
         self.CLOTHES_CATEGORY_BLOCK = self.page.locator('//*[@id="root"]/div/div/main/div/div[3]/div[1]/div[1]')
-        self.CLOTHES_CATEGORY_RIGHT_BUTTON = self.page.locator('//*[@id="root"]/div/div/main/div/div[3]/div[1]/div[1]/div[1]/div[2]/button[2]/svg')
-        self.CLOTHES_CATEGORY_LEFT_BUTTON = self.page.locator('//*[@id="root"]/div/div/main/div/div[3]/div[1]/div[1]/div[1]/div[2]/button[1]/svg')
-        self.CLOTHES_CATEGORY_VIEW_MORE_BUTTON = self.page.locator('//*[@id="root"]/div/div/main/div/div[3]/div[1]/div[1]/div[2]/div/div[23]/div/a')
+        self.CLOTHES_CATEGORY_RIGHT_BUTTON = self.page.locator(
+            '//*[@id="root"]/div/div/main/div/div[3]/div[1]/div[1]/div[1]/div[2]/button[2]/svg')
+        self.CLOTHES_CATEGORY_LEFT_BUTTON = self.page.locator(
+            '//*[@id="root"]/div/div/main/div/div[3]/div[1]/div[1]/div[1]/div[2]/button[1]/svg')
+        self.CLOTHES_CATEGORY_VIEW_MORE_BUTTON = self.page.locator(
+            '//*[@id="root"]/div/div/main/div/div[3]/div[1]/div[1]/div[2]/div/div[23]/div/a')
 
         self.KIDS_CATEGORY_BLOCK = self.page.locator('//*[@id="root"]/div/div/main/div/div[3]/div[1]/div[2]')
-        self.KIDS_CATEGORY_RIGHT_BUTTON = self.page.locator('//*[@id="root"]/div/div/main/div/div[3]/div[1]/div[2]/div[1]/div[2]/button[2]/svg')
-        self.KIDS_CATEGORY_LEFT_BUTTON = self.page.locator('//*[@id="root"]/div/div/main/div/div[3]/div[1]/div[2]/div[1]/div[2]/button[1]/svg')
-        self.KIDS_CATEGORY_VIEW_MORE_BUTTON = self.page.locator('//*[@id="root"]/div/div/main/div/div[3]/div[1]/div[2]/div[2]/div/div[26]/div/a')
+        self.KIDS_CATEGORY_RIGHT_BUTTON = self.page.locator(
+            '//*[@id="root"]/div/div/main/div/div[3]/div[1]/div[2]/div[1]/div[2]/button[2]/svg')
+        self.KIDS_CATEGORY_LEFT_BUTTON = self.page.locator(
+            '//*[@id="root"]/div/div/main/div/div[3]/div[1]/div[2]/div[1]/div[2]/button[1]/svg')
+        self.KIDS_CATEGORY_VIEW_MORE_BUTTON = self.page.locator(
+            '//*[@id="root"]/div/div/main/div/div[3]/div[1]/div[2]/div[2]/div/div[26]/div/a')
 
         self.TITLE_EMAIL_MAILING = self.page.locator('//*[@id="root"]/div/div/main/div/div[4]/div/div[1]/h2')
         self.ENTER_EMAIL_FIELD = self.page.locator('//*[@id="root"]/div/div/main/div/div[4]/div/div[1]/div/div/input')
@@ -44,26 +54,40 @@ class MainPage(BasePage):
         self.CONTACT_US_TITLE = self.page.locator('//*[@id="root"]/div/div/main/div/div[4]/div/div[2]/div[1]/h3')
         self.PHONE_NUMBER = self.page.locator('//*[@id="root"]/div/div/main/div/div[4]/div/div[2]/div[1]/a/span')
 
-        self.SOCIAL_MEDIA_LINKS_TITLE = self.page.locator('//*[@id="root"]/div/div/main/div/div[4]/div/div[2]/div[2]/div/h3')
-        self.TELEGRAM_LINK = self.page.locator('//*[@id="root"]/div/div/main/div/div[4]/div/div[2]/div[2]/div/ul/li[1]/a')
-        self.INSTAGRAM_LINK = self.page.locator('//*[@id="root"]/div/div/main/div/div[4]/div/div[2]/div[2]/div/ul/li[2]/a')
+        self.SOCIAL_MEDIA_LINKS_TITLE = self.page.locator(
+            '//*[@id="root"]/div/div/main/div/div[4]/div/div[2]/div[2]/div/h3')
+        self.TELEGRAM_LINK = self.page.locator(
+            '//*[@id="root"]/div/div/main/div/div[4]/div/div[2]/div[2]/div/ul/li[1]/a')
+        self.INSTAGRAM_LINK = self.page.locator(
+            '//*[@id="root"]/div/div/main/div/div[4]/div/div[2]/div[2]/div/ul/li[2]/a')
         self.VK_LINK = self.page.locator('//*[@id="root"]/div/div/main/div/div[4]/div/div[2]/div[2]/div/ul/li[3]/a')
         self.GOOGLE_LINK = self.page.locator('//*[@id="root"]/div/div/main/div/div[4]/div/div[2]/div[2]/div/ul/li[4]/a')
 
         self.BOTTOM_ABRA_LOGO = self.page.locator('//*[@id="root"]/div/div/footer/div[1]/a')
         self.BOTTOM_LAST_NEWS_BUTTON = self.page.locator('//*[@id="root"]/div/div/footer/div[1]/div[1]/ul/li[1]/a')
-        self.BOTTOM_CONTACT_SUPPORT_BUTTON = self.page.locator('//*[@id="root"]/div/div/footer/div[1]/div[1]/ul/li[4]/a')
-        self.BOTTOM_TUTORIAL_FOR_BUYERS_BUTTON = self.page.locator('//*[@id="root"]/div/div/footer/div[1]/div[1]/ul/li[2]/a')
+        self.BOTTOM_CONTACT_SUPPORT_BUTTON = self.page.locator(
+            '//*[@id="root"]/div/div/footer/div[1]/div[1]/ul/li[4]/a')
+        self.BOTTOM_TUTORIAL_FOR_BUYERS_BUTTON = self.page.locator(
+            '//*[@id="root"]/div/div/footer/div[1]/div[1]/ul/li[2]/a')
         self.BOTTOM_FAQ_BUTTON = self.page.locator('//*[@id="root"]/div/div/footer/div[1]/div[1]/ul/li[5]/a')
         self.BOTTOM_SELL_ON_ABRA_BUTTON = self.page.locator('//*[@id="root"]/div/div/footer/div[1]/div[1]/ul/li[3]/a')
         self.BOTTOM_ABOUT_US_BUTTON = self.page.locator('//*[@id="root"]/div/div/footer/div[1]/div[1]/ul/li[6]/a')
-        self.BOTTOM_CHANGE_LANGUAGE_BUTTON = self.page.locator('//*[@id="root"]/div/div/footer/div[1]/div[2]/div/div[1]/div/div')
-        self.BOTTOM_CHANGE_LOCATION_BUTTON = self.page.locator('//*[@id="root"]/div/div/footer/div[1]/div[2]/div/div[2]/div/div')
+        self.BOTTOM_CHANGE_LANGUAGE_BUTTON = self.page.locator(
+            '//*[@id="root"]/div/div/footer/div[1]/div[2]/div/div[1]/div/div')
+        self.BOTTOM_CHANGE_LOCATION_BUTTON = self.page.locator(
+            '//*[@id="root"]/div/div/footer/div[1]/div[2]/div/div[2]/div/div')
 
         self.ABRA_COPYRIGHT = self.page.locator('//*[@id="root"]/div/div/footer/div[2]/div/p')
         self.TERMS_AND_CONDITIONS_BUTTON = self.page.locator('//*[@id="root"]/div/div/footer/div[2]/div/a[1]')
         self.PRIVACY_POLICY_BUTTON = self.page.locator('//*[@id="root"]/div/div/footer/div[2]/div/a[2]')
         self.QUESTION_WINDOW = self.page.locator('//*[@id="root"]/div/div/main/div/div[3]/div[2]/a')
+
+        self.ALL_CATEGORIES_CLOTHES_BUTTON = self.page.locator('//*[@id="root"]/div/div/header/div[2]/div[1]/div/ul/li[2]/button')
+        self.ALL_CATEGORIES_CLOTHES_SPORTSWEAR_BUTTON = self.page.locator('//*[@id="root"]/div/div/header/div[2]/div[1]/div/div/li[2]/a[3]/div')
+        self.ITEM_BLOCK_SELECTOR = self.page.locator("//article[@class='ProductCard_card__rxSuo']")
+        self.ITEM_COLOR_SELECTOR = self.page.locator("//button[@class='ProductColorPickable_item__wIODf']")
+        self.ADD_TO_CART_BUTTON = self.page.locator('//*[@id="root"]/div/div/main/div/div/div[2]/div[3]/div[1]/button[2]')
+        self.CONTINUE_SHOPPING_BUTTON = self.page.locator('/html/body/div[2]/div/div/div/button')
 
 
     def search_main_logo(self):
@@ -219,4 +243,40 @@ class MainPage(BasePage):
     def search_question_window(self):
         expect(self.QUESTION_WINDOW).to_be_visible()
 
+    def click_on_all_categories_button(self):
+        self.ALL_CATEGORIES_BUTTON.click()
 
+    def click_on_all_categories_clothes_button(self):
+        self.ALL_CATEGORIES_CLOTHES_BUTTON.click()
+
+    def click_on_all_categories_clothes_sportswear_button(self):
+        self.ALL_CATEGORIES_CLOTHES_SPORTSWEAR_BUTTON.click()
+
+    def get_items_count(self):
+        return self.ITEM_BLOCK_SELECTOR.count()
+
+    def wait_items(self):
+        expect(self.ITEM_BLOCK_SELECTOR.nth(0)).to_be_visible()
+
+    def click_on_change_location_button(self):
+        self.CHANGE_LOCATION_BUTTON.click()
+
+    def get_two_random_items_from_list(self):
+        random_item_index = random.sample(range(0, self.get_items_count()), 2)
+        return self.ITEM_BLOCK_SELECTOR.nth(random_item_index[0]), self.ITEM_BLOCK_SELECTOR.nth(random_item_index[1])
+
+    def get_item_name_from_item(self, element):
+        return element.text_content().split('more')[1].split('$')[0]
+
+    def click_on_item(self, item_name):
+        self.ITEM_BLOCK_SELECTOR.get_by_text(item_name).click()
+
+    def click_on_item_color(self):
+        expect(self.ITEM_COLOR_SELECTOR.nth(0)).to_be_visible()
+        self.ITEM_COLOR_SELECTOR.nth(0).click()
+
+    def click_on_add_to_cart_button(self):
+        self.ADD_TO_CART_BUTTON.click()
+
+    def click_on_continue_shopping_button(self):
+        self.CONTINUE_SHOPPING_BUTTON.click()
