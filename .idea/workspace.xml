@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="74526a0b-dfcd-40d9-b7e9-46a51870113f" name="Changes" comment="123">
-      <change afterPath="$PROJECT_DIR$/test_ui/test_add_items_to_basket.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="74526a0b-dfcd-40d9-b7e9-46a51870113f" name="Changes" comment="add items test">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/main_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/main_page.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_ui/test_main_page_search_elements.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_ui/test_main_page_search_elements.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_ui/test_add_items_to_basket.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_ui/test_add_items_to_basket.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -316,7 +313,15 @@
       <option name="project" value="LOCAL" />
       <updated>1750097542067</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="add items test">
+      <option name="closed" value="true" />
+      <created>1750699597138</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1750699597138</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -336,6 +341,7 @@
     <MESSAGE value="- add Api test reset forgotten password" />
     <MESSAGE value="- separation api tests for new files&#10;- add registration fixture" />
     <MESSAGE value="123" />
-    <option name="LAST_COMMIT_MESSAGE" value="123" />
+    <MESSAGE value="add items test" />
+    <option name="LAST_COMMIT_MESSAGE" value="add items test" />
   </component>
 </project>
