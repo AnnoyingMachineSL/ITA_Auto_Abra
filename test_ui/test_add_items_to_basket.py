@@ -61,6 +61,9 @@ class TestAddItemsToBasket:
             main_page.compare_items_names(item_names_from_store_page=[first_item_name, second_item_name],
                                           item_names_from_basket=item_names_from_basket)
 
+        with allure.step('Compare item count and number from item counter'):
+            main_page.compare_items_count_and_item_counter(item_count=len(item_names_from_basket))
+
         with allure.step('Delete all items from basket'):
             main_page.delete_all_item_from_basket()
 

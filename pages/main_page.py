@@ -23,7 +23,7 @@ class MainPage(BasePage):
             '//*[@id="root"]/div/div/header/div[2]/div[3]/div/div[1]/div/div')
         self.CHANGE_LOCATION_BUTTON = self.page.locator(
             '//*[@id="root"]/div/div/header/div[2]/div[3]/div/div[2]/div/div')
-        self.MAIN_IMAGE = self.page.locator('//*[@id="root"]/div/div/main/div/div[1]/div[1]/div/img')
+        self.MAIN_IMAGE = self.page.locator("//img[@class='LazyImage_image__sZ-5a']")
         self.FIRST_BLOCK_IMAGE = self.page.locator('//*[@id="root"]/div/div/main/div/div[1]/div[2]/div/div[1]/div/img')
         self.SECOND_BLOCK_IMAGE = self.page.locator('//*[@id="root"]/div/div/main/div/div[1]/div[2]/div/div[2]/div/img')
         self.THIRD_BLOCK_IMAGE = self.page.locator('//*[@id="root"]/div/div/main/div/div[1]/div[2]/div/div[3]/div/img')
@@ -303,10 +303,7 @@ class MainPage(BasePage):
         expect(self.SIZE_BUTTON_LOCATOR.nth(0)).to_be_visible()
         self.SIZE_BUTTON_LOCATOR.nth(0).click()
 
-    def check_basket_item_counter(self):
-        expect(self.BASKET_ITEM_COUNTER).to_have_count(1)
-
-    def check_item_count_in_basket(self):
+    def check_number_in_item_counter(self):
         return self.BASKET_ITEM_COUNTER.text_content()
 
     def click_on_basket_button(self):
@@ -335,3 +332,6 @@ class MainPage(BasePage):
 
     def search_empty_basket_message(self):
         expect(self.EMPTY_BASKET_MESSAGE).to_be_visible()
+
+    def compare_items_count_and_item_counter(self, item_count):
+        assert item_count == int(self.check_number_in_item_counter())

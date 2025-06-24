@@ -9,14 +9,14 @@ from pages.main_page import MainPage
 
 @allure.title('[Positive] Search elements on main page')
 @allure.severity(allure.severity_level.TRIVIAL)
-class TestSearchLoginPageElements:
+class TestSearchMainPageElements:
 
     @pytest.mark.positive
     @pytest.mark.UI
     @pytest.mark.regression
     @allure.title('[UI][Positive] Search elements on main page')
     @allure.severity(allure.severity_level.TRIVIAL)
-    def test_search_login_page_elements(self, login):
+    def test_search_main_page_elements(self, login):
         main_page = MainPage(login)
 
         with allure.step('Search main logo'):
