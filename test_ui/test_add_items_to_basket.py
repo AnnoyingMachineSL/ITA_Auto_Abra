@@ -37,16 +37,19 @@ class TestAddItemsToBasket:
         with allure.step('Wait all items'):
             main_page.wait_items()
 
-        first_item, second_item = main_page.get_two_random_items_from_list()
-        first_item_name = main_page.get_item_name_from_item(first_item)
-        second_item_name = main_page.get_item_name_from_item(second_item)
+        with allure.step('Prepare items to add to basket'):
+            first_item, second_item = main_page.get_two_random_items_from_list()
+            first_item_name = main_page.get_item_name_from_item(first_item)
+            second_item_name = main_page.get_item_name_from_item(second_item)
 
-        main_page.click_on_item(first_item_name)
-        main_page.click_on_item_color()
-        main_page.click_on_add_to_cart_button()
-        main_page.get_back()
+        chapter_url = main_page.get_url()
 
-        main_page.click_on_item(second_item_name)
-        main_page.click_on_item_color()
-        main_page.click_on_add_to_cart_button()
-        main_page.get_back()
+        with allure.step(f'Add first item: {first_item_name}'):
+            main_page.click_on_item(first_item_name)
+            main_page.get_back()
+
+        with allure.step(f'Add second item: {second_item_name}'):
+            main_page.click_on_item(second_item_name)
+            main_page.get_back()
+
+        time.sleep(5)
