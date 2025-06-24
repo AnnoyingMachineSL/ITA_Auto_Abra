@@ -42,14 +42,27 @@ class TestAddItemsToBasket:
             first_item_name = main_page.get_item_name_from_item(first_item)
             second_item_name = main_page.get_item_name_from_item(second_item)
 
-        chapter_url = main_page.get_url()
-
         with allure.step(f'Add first item: {first_item_name}'):
             main_page.click_on_item(first_item_name)
+            main_page.click_on_add_to_cart_button()
             main_page.get_back()
 
         with allure.step(f'Add second item: {second_item_name}'):
             main_page.click_on_item(second_item_name)
+            main_page.click_on_add_to_cart_button()
             main_page.get_back()
 
-        time.sleep(5)
+        with allure.step('Go to basket and search items'):
+            main_page.click_on_basket_button()
+            main_page.reload_page()
+            item_names_from_basket = main_page.get_items_names_from_basket()
+
+        with allure.step('Compare item names from store page and basket'):
+            main_page.compare_items_names(item_names_from_store_page=[first_item_name, second_item_name],
+                                          item_names_from_basket=item_names_from_basket)
+
+        with allure.step('Delete all items from basket'):
+            main_page.delete_all_item_from_basket()
+
+        with allure.step('Search message about empty basket'):
+            main_page.search_empty_basket_message()

@@ -83,18 +83,27 @@ class MainPage(BasePage):
         self.PRIVACY_POLICY_BUTTON = self.page.locator('//*[@id="root"]/div/div/footer/div[2]/div/a[2]')
         self.QUESTION_WINDOW = self.page.locator('//*[@id="root"]/div/div/main/div/div[3]/div[2]/a')
 
-        self.ALL_CATEGORIES_CLOTHES_BUTTON = self.page.locator('//*[@id="root"]/div/div/header/div[2]/div[1]/div/ul/li[2]/button')
-        self.ALL_CATEGORIES_CLOTHES_SPORTSWEAR_BUTTON = self.page.locator('//*[@id="root"]/div/div/header/div[2]/div[1]/div/div/li[2]/a[3]/div')
+        self.ALL_CATEGORIES_CLOTHES_BUTTON = self.page.locator(
+            '//*[@id="root"]/div/div/header/div[2]/div[1]/div/ul/li[2]/button')
+        self.ALL_CATEGORIES_CLOTHES_SPORTSWEAR_BUTTON = self.page.locator(
+            '//*[@id="root"]/div/div/header/div[2]/div[1]/div/div/li[2]/a[3]/div')
         self.ITEM_BLOCK_SELECTOR = self.page.locator("//article[@class='ProductCard_card__rxSuo']")
 
-        self.SELECT_COLOR_TEXT = self.page.locator('//*[@id="root"]/div/div/main/div/div/div[2]/div[3]/div[1]/div[2]/div[2]/p')
+        self.SELECT_COLOR_TEXT = self.page.locator(
+            '//*[@id="root"]/div/div/main/div/div/div[2]/div[3]/div[1]/div[2]/div[2]/p')
         self.ITEM_COLOR_SELECTOR = self.page.locator("//button[@class='ProductColorPickable_item__wIODf']")
-        self.SIZE_AND_QUANTITY_TEXT = self.page.locator('//*[@id="root"]/div/div/main/div/div/div[2]/div[3]/div[1]/div[2]/div[2]/p')
-        self.SIZE_BUTTON_LOCATOR = self.page.locator("//button[@class='ProductSizePickable_item__ikuwo ProductSizePickable_size__yaKDm']")
-        self.ADD_TO_CART_BUTTON = self.page.locator('//*[@id="root"]/div/div/main/div/div/div[2]/div[3]/div[1]/button[2]')
+        self.SIZE_AND_QUANTITY_TEXT = self.page.locator(
+            '//*[@id="root"]/div/div/main/div/div/div[2]/div[3]/div[1]/div[2]/div[2]/p')
+        self.SIZE_BUTTON_LOCATOR = self.page.locator(
+            "//button[@class='ProductSizePickable_item__ikuwo ProductSizePickable_size__yaKDm']")
+        self.ADD_TO_CART_BUTTON = self.page.locator(
+            '//*[@id="root"]/div/div/main/div/div/div[2]/div[3]/div[1]/button[2]')
         self.BASKET_ITEM_COUNTER = self.page.locator('//*[@id="root"]/div/div/header/div[1]/div/div[2]/a[3]/div')
 
-
+        self.ITEMS_NAME_IN_BASKET_LOCATOR = self.page.locator("//a[@class='ItemDescription_item_title__+V0mF']")
+        self.DELETE_FROM_BASKET_BUTTON_SELECTOR = self.page.locator(
+            "//button[@class='ButtonIcon_button__QdSfh OrderItemInCart_trash_button__x96gh']")
+        self.EMPTY_BASKET_MESSAGE = self.page.locator('//*[@id="root"]/div/div/main/div/div/h1[1]')
 
     def search_main_logo(self):
         expect(self.MAIN_LOGO_ABRA).to_be_visible()
@@ -274,9 +283,6 @@ class MainPage(BasePage):
     def get_item_name_from_item(self, element):
         return element.text_content().split('more')[1].split('$')[0]
 
-    # def click_on_item(self, item_name):
-    #     self.ITEM_BLOCK_SELECTOR.get_by_text(item_name).click()
-
     def click_on_item_color(self):
         expect(self.ITEM_COLOR_SELECTOR.nth(0)).to_be_visible()
         self.ITEM_COLOR_SELECTOR.nth(0).click()
@@ -291,7 +297,7 @@ class MainPage(BasePage):
         return expect(self.SIZE_BUTTON_LOCATOR).to_be_visible()
 
     def check_size_and_quantity_text(self):
-       return self.SIZE_AND_QUANTITY_TEXT.count()
+        return self.SIZE_AND_QUANTITY_TEXT.count()
 
     def click_on_size_button(self):
         expect(self.SIZE_BUTTON_LOCATOR.nth(0)).to_be_visible()
@@ -306,13 +312,26 @@ class MainPage(BasePage):
     def click_on_basket_button(self):
         self.BASKET_BUTTON.click()
 
-
     def click_on_item(self, item_name):
         self.ITEM_BLOCK_SELECTOR.get_by_text(item_name).click()
         try:
             self.click_on_size_button()
         except:
             self.click_on_item_color()
-        self.click_on_add_to_cart_button()
 
+    def get_items_names_from_basket(self):
+        expect(self.ITEMS_NAME_IN_BASKET_LOCATOR.nth(0)).to_be_visible()
+        return [item.text_content() for item in self.ITEMS_NAME_IN_BASKET_LOCATOR.all()]
 
+    def compare_items_names(self, item_names_from_store_page,
+                            item_names_from_basket):
+        assert item_names_from_basket.sort(reverse=True) == item_names_from_store_page.sort(reverse=True)
+
+    def delete_all_item_from_basket(self):
+        delete_buttons = self.DELETE_FROM_BASKET_BUTTON_SELECTOR.all()
+
+        for button in delete_buttons:
+            button.click()
+
+    def search_empty_basket_message(self):
+        expect(self.EMPTY_BASKET_MESSAGE).to_be_visible()
