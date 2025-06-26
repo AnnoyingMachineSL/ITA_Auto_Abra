@@ -29,6 +29,10 @@ class LoginResponseModel(BaseModel):
     result: Optional[bool] = True
 
 
+class LoginResponseNotVerifiedUserNegative(BaseModel):
+    detail: Optional[str] = 'Wrong email or password, maybe email was not confirmed or account was deleted?'
+
+
 class RegistrationResponseModel(BaseModel):
     ok: Optional[bool] = True
     result: Optional[bool] = None

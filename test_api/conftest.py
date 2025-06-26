@@ -21,3 +21,16 @@ def registration_new_account(request):
     token = email_client.get_registration_token()
     confirm_email_response = Client().confirm_email(token=token, expected_model=ConfirmEmailResponse())
     return random_email, random_password
+
+
+
+@pytest.fixture
+def registration_new_account_without_verification(request):
+    user_type = request.param
+    random_email = generator.random_temporary_email()
+    random_password = generator.random_password()
+    email_client = EmailClient(temporary_email=random_email)
+    registration_model = LoginModel(email=random_email, password=random_password)
+    response = Client().registration(request=registration_model, expected_model=RegistrationResponseModel(),
+                                     user_type=user_type, status_code=200)
+    return random_email, random_password

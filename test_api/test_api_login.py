@@ -1,7 +1,10 @@
 import allure
 import pytest
+
+from client.postgres_client import PostgresClient
 from utils.config import APILogin
-from models.models import LoginModel, LoginResponseModel, NegativeLoginResponseModel
+from models.models import LoginModel, LoginResponseModel, NegativeLoginResponseModel, \
+    LoginResponseNotVerifiedUserNegative
 from client.client import Client
 
 
@@ -17,7 +20,6 @@ class TestApiLogin:
     @pytest.mark.parametrize('email', [APILogin.LOGIN])
     @pytest.mark.parametrize('password', [APILogin.PASSWORD])
     def test_api_login(self, email: str, password: str):
-
         with allure.step(f'Create LoginModel by email:{email}'):
             login_model = LoginModel(email=email, password=password)
 
@@ -42,3 +44,21 @@ class TestApiLoginNegative:
 
         with allure.step(f'Log in by models: {login_model} and {NegativeLoginResponseModel}'):
             Client().login(request=login_model, expected_model=NegativeLoginResponseModel(), status_code=422)
+
+    @allure.title('[Api test] Authorization like not verified user')
+    @pytest.mark.negative
+    @pytest.mark.API
+    @allure.severity(allure.severity_level.CRITICAL)
+    @pytest.mark.parametrize('registration_new_account_without_verification', ['seller', 'supplier'], indirect=True)
+    def test_api_login_not_verified_user(self, registration_new_account_without_verification):
+        with allure.step('Create new account without verification'):
+            email, password = registration_new_account_without_verification
+
+        with allure.step(f'Create LoginModel by email:{email}'):
+            login_model = LoginModel(email=email, password=password)
+
+        with allure.step(f'Log in by models: {login_model} and {LoginResponseNotVerifiedUserNegative}'):
+            Client().login(request=login_model, expected_model=LoginResponseNotVerifiedUserNegative(), status_code=403)
+
+        with allure.step('Check created user on db'):
+            PostgresClient().get_user(email=email.lower(), is_deleted=False, is_verified=False)

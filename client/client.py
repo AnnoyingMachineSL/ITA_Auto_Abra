@@ -3,7 +3,7 @@ from typing import Union
 import allure
 import requests
 from models.models import LoginModel, LoginResponseModel, RegistrationResponseModel, NegativeLoginResponseModel, \
-    NegativeRegistrationResponseModel, ResetPasswordRequest, ForgotPasswordResponse, ResetPasswordNegativeResponse
+    NegativeRegistrationResponseModel, ResetPasswordRequest, ForgotPasswordResponse, ResetPasswordNegativeResponse, LoginResponseNotVerifiedUserNegative
 from utils.validate_response import ValidateResponse
 
 
@@ -33,7 +33,7 @@ class Client(ClientApi):
 
     @allure.step('POST /auth/sign-in')
     def login(self, request: LoginModel,
-              expected_model: Union[LoginResponseModel, NegativeLoginResponseModel],
+              expected_model: Union[LoginResponseModel, NegativeLoginResponseModel, LoginResponseNotVerifiedUserNegative],
               status_code: int = 200):
         response = self.request(method='post', url='/auth/sign-in', json=request.model_dump())
         return ValidateResponse.validate_response(response=response, model=expected_model, status_code=status_code)
