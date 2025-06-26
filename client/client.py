@@ -62,3 +62,8 @@ class Client(ClientApi):
                        status_code=200):
         response = self.request(method='post', url=f'/users/password/reset?token={token}', json=request.model_dump())
         return ValidateResponse.validate_response(response=response, model=expected_model, status_code=status_code)
+
+    # @allure.step('GET /auth/sign-in/current')
+    # def get_user_information(self):
+    #     response = self.request(method='get', url='/auth/sign-in/current')
+    #     return response.json(), response.status_code

@@ -3,6 +3,7 @@ import pytest
 
 from client.client import Client
 from client.client_email import EmailClient
+from client.postgres_client import PostgresClient
 from models.models import LoginModel, RegistrationResponseModel, ConfirmEmailResponse, NegativeRegistrationResponseModel
 from utils import generator
 
@@ -38,8 +39,8 @@ class TestRegistration:
         with allure.step('Confirm email by user token'):
             Client().confirm_email(token=token, expected_model=ConfirmEmailResponse())
 
-        # with allure.step('Check created user on db'):
-        #     PostgresClient().get_user(email=random_email.lower(), is_deleted=False, is_verified=False)
+        with allure.step('Check created user on db'):
+            PostgresClient().get_user(email=random_email.lower(), is_deleted=False, is_verified=True)
 
 
 @allure.title('[Negative] Registration new account')

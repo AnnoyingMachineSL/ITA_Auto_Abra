@@ -4,6 +4,7 @@ import allure
 import requests
 from utils.generator import random_temporary_email
 
+
 class ClientEmail:
     def __init__(self):
         self.base_url = 'https://tempmail.plus'
@@ -27,17 +28,13 @@ class EmailClient(ClientEmail):
         super().__init__()
         self.base_email = temporary_email
 
-    def get_email(self):
+    def get_email(self, sleep=0):
+        time.sleep(sleep)
         response = self.request(method='get', url=f'/api/mails?email={self.base_email}')
         return response.json()
 
     def get_message_by_id(self):
         response = self.get_email()
-
-    def get_email(self, sleep=0):
-        time.sleep(sleep)
-        response = self.request(method='get', url=f'/api/mails?email={self.base_email}')
-        return response.json()
 
     def get_last_message(self):
         response = self.get_email(sleep=3)
@@ -46,11 +43,9 @@ class EmailClient(ClientEmail):
         message_response = self.request(method='get', url=f'/api/mails/{last_id}?email={self.base_email}')
         return message_response.json()
 
-
     def get_registration_token(self):
         time.sleep(2)
         return self.get_message_by_id()['html'].split('href="')[1].split('">')[0].split('token=')[1]
-
 
     def get_first_message(self):
         response = self.get_email(sleep=3)
@@ -58,12 +53,8 @@ class EmailClient(ClientEmail):
         message_response = self.request(method='get', url=f'/api/mails/{first_id}?email={self.base_email}')
         return message_response.json()
 
-    def get_registration_token(self):
-        return self.get_last_message()['html'].split('href="')[1].split('">')[0].split('token=')[1]
-
     def get_reset_password_link(self):
         return self.get_first_message()['html'].split('href="')[1].split('">')[0]
 
     def get_change_password_token(self):
         return self.get_first_message()['html'].split('href="')[1].split('">')[0].split('token=')[1]
-
