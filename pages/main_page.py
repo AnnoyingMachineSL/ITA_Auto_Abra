@@ -104,6 +104,8 @@ class MainPage(BasePage):
         self.DELETE_FROM_BASKET_BUTTON_SELECTOR = self.page.locator(
             "//button[@class='ButtonIcon_button__QdSfh OrderItemInCart_trash_button__x96gh']")
         self.EMPTY_BASKET_MESSAGE = self.page.locator('//*[@id="root"]/div/div/main/div/div/h1[1]')
+        self.ITEM_BOX = self.page.locator("//article[@class='ProductCard_card__rxSuo']")
+        self.ITEM_QUANTITY =self.page.locator('//*[@id="root"]/div/div/main/div/div/div[2]/div[3]/div[1]/div[3]/div/div/div[2]/div/input')
 
     def search_main_logo(self):
         expect(self.MAIN_LOGO_ABRA).to_be_visible()
@@ -271,7 +273,7 @@ class MainPage(BasePage):
         return self.ITEM_BLOCK_SELECTOR.count()
 
     def wait_items(self):
-        expect(self.ITEM_BLOCK_SELECTOR.nth(0)).to_be_visible()
+        expect(self.ITEM_BOX.nth(0)).to_be_visible()
 
     def click_on_change_location_button(self):
         self.CHANGE_LOCATION_BUTTON.click()
@@ -309,12 +311,16 @@ class MainPage(BasePage):
     def click_on_basket_button(self):
         self.BASKET_BUTTON.click()
 
+    def fill_item_quantity_field(self):
+        self.ITEM_QUANTITY.fill('1')
+
     def click_on_item(self, item_name):
-        self.ITEM_BLOCK_SELECTOR.get_by_text(item_name).click()
-        try:
-            self.click_on_size_button()
-        except:
-            self.click_on_item_color()
+        self.ITEM_BOX.get_by_text(item_name).click()
+        self.fill_item_quantity_field()
+        # try:
+        #     self.click_on_size_button()
+        # except:
+        #     self.click_on_item_color()
 
     def get_items_names_from_basket(self):
         expect(self.ITEMS_NAME_IN_BASKET_LOCATOR.nth(0)).to_be_visible()
@@ -335,3 +341,12 @@ class MainPage(BasePage):
 
     def compare_items_count_and_item_counter(self, item_count):
         assert item_count == int(self.check_number_in_item_counter())
+
+    def get_all_items_op_page(self):
+        return self.ITEM_BOX.all()
+
+    def get_the_required_number_of_items(self, all_items, num_items):
+        random_item_index = random.sample(range(0, len(all_items)), k=num_items)
+        return [all_items[i] for i in random_item_index]
+
+

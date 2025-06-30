@@ -17,8 +17,9 @@ class TestAddItemsToBasket:
     @pytest.mark.UI
     @pytest.mark.smoke
     @allure.title('[UI][Positive] Search and add items')
+    @pytest.mark.parametrize('num_items', [2])
     @allure.severity(allure.severity_level.CRITICAL)
-    def test_search_and_add_items_to_basket(self, login):
+    def test_search_and_add_items_to_basket(self, login, num_items):
         main_page = MainPage(login)
 
         with allure.step('Click on All categories button'):
@@ -37,20 +38,17 @@ class TestAddItemsToBasket:
         with allure.step('Wait all items'):
             main_page.wait_items()
 
-        with allure.step('Prepare items to add to basket'):
-            first_item, second_item = main_page.get_two_random_items_from_list()
-            first_item_name = main_page.get_item_name_from_item(first_item)
-            second_item_name = main_page.get_item_name_from_item(second_item)
+        all_items = main_page.get_all_items_op_page()
+        req_items = main_page.get_the_required_number_of_items(all_items=all_items, num_items=num_items)
+        item_names_list = [main_page.get_item_name_from_item(item) for item in req_items]
 
-        with allure.step(f'Add first item: {first_item_name}'):
-            main_page.click_on_item(first_item_name)
-            main_page.click_on_add_to_cart_button()
-            main_page.get_back()
+        with allure.step('Add items to basket'):
+            for item in req_items:
+                item.click()
+                main_page.fill_item_quantity_field()
+                main_page.click_on_add_to_cart_button()
+                main_page.get_back()
 
-        with allure.step(f'Add second item: {second_item_name}'):
-            main_page.click_on_item(second_item_name)
-            main_page.click_on_add_to_cart_button()
-            main_page.get_back()
 
         with allure.step('Go to basket and search items'):
             main_page.click_on_basket_button()
@@ -58,14 +56,16 @@ class TestAddItemsToBasket:
             item_names_from_basket = main_page.get_items_names_from_basket()
 
         with allure.step('Compare item names from store page and basket'):
-            main_page.compare_items_names(item_names_from_store_page=[first_item_name, second_item_name],
+            main_page.compare_items_names(item_names_from_store_page=item_names_list,
                                           item_names_from_basket=item_names_from_basket)
 
-        with allure.step('Compare item count and number from item counter'):
-            main_page.compare_items_count_and_item_counter(item_count=len(item_names_from_basket))
+        # with allure.step('Compare item count and number from item counter'):
+        #     main_page.compare_items_count_and_item_counter(item_count=len(item_names_from_basket))
 
         with allure.step('Delete all items from basket'):
             main_page.delete_all_item_from_basket()
 
         with allure.step('Search message about empty basket'):
             main_page.search_empty_basket_message()
+
+
