@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="74526a0b-dfcd-40d9-b7e9-46a51870113f" name="Changes" comment="add search DB about registration new user&#10;change connection settings to DB">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/main_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/main_page.py" afterDir="false" />
+    <list default="true" id="74526a0b-dfcd-40d9-b7e9-46a51870113f" name="Changes" comment="change add items to basket test">
       <change beforePath="$PROJECT_DIR$/test_ui/test_add_items_to_basket.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_ui/test_add_items_to_basket.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -249,7 +246,15 @@
       <option name="project" value="LOCAL" />
       <updated>1750958149068</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="change add items to basket test">
+      <option name="closed" value="true" />
+      <created>1751266663542</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1751266663542</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -262,6 +267,7 @@
     <MESSAGE value="add items test done" />
     <MESSAGE value="add check item counter number" />
     <MESSAGE value="add search DB about registration new user&#10;change connection settings to DB" />
-    <option name="LAST_COMMIT_MESSAGE" value="add search DB about registration new user&#10;change connection settings to DB" />
+    <MESSAGE value="change add items to basket test" />
+    <option name="LAST_COMMIT_MESSAGE" value="change add items to basket test" />
   </component>
 </project>

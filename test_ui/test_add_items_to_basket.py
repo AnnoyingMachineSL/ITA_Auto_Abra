@@ -17,7 +17,7 @@ class TestAddItemsToBasket:
     @pytest.mark.UI
     @pytest.mark.smoke
     @allure.title('[UI][Positive] Search and add items')
-    @pytest.mark.parametrize('num_items', [2])
+    @pytest.mark.parametrize('num_items', [2, 3])
     @allure.severity(allure.severity_level.CRITICAL)
     def test_search_and_add_items_to_basket(self, login, num_items):
         main_page = MainPage(login)
