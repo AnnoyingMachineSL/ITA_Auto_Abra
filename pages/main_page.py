@@ -8,6 +8,7 @@ class MainPage(BasePage):
 
     def __init__(self, page):
         super().__init__(page)
+        self.BASE = self.page.locator('//*[@id="root"]/div/div')
         self.MAIN_LOGO_ABRA = self.page.locator('//*[@id="root"]/div/div/header/div[1]/div/a')
         self.SEARCH_FIELD = self.page.locator('//*[@id="root"]/div/div/header/div[1]/div/div[1]/input')
         self.LOGIN_HEADER_ACTIONS = self.page.locator('//*[@id="root"]/div/div/header/div[1]/div/div[2]')
@@ -24,6 +25,7 @@ class MainPage(BasePage):
         self.CHANGE_LOCATION_BUTTON = self.page.locator(
             '//*[@id="root"]/div/div/header/div[2]/div[3]/div/div[2]/div/div')
         self.MAIN_IMAGE = self.page.locator("//img[@class='LazyImage_image__sZ-5a']")
+        #self.MAIN_IMAGE = self.page.locator('/html/body/div/div/div/main/div/div[1]/div[1]/div/img')
         self.FIRST_BLOCK_IMAGE = self.page.locator('//*[@id="root"]/div/div/main/div/div[1]/div[2]/div/div[1]/div/img')
         self.SECOND_BLOCK_IMAGE = self.page.locator('//*[@id="root"]/div/div/main/div/div[1]/div[2]/div/div[2]/div/img')
         self.THIRD_BLOCK_IMAGE = self.page.locator('//*[@id="root"]/div/div/main/div/div[1]/div[2]/div/div[3]/div/img')
@@ -144,6 +146,8 @@ class MainPage(BasePage):
         expect(self.CHANGE_LOCATION_BUTTON).to_be_visible()
 
     def search_main_image(self):
+        # time.sleep(3)
+        # print(self.MAIN_IMAGE)
         expect(self.MAIN_IMAGE).to_be_visible()
 
     def search_first_block_image(self):
@@ -348,5 +352,8 @@ class MainPage(BasePage):
     def get_the_required_number_of_items(self, all_items, num_items):
         random_item_index = random.sample(range(0, len(all_items)), k=num_items)
         return [all_items[i] for i in random_item_index]
+
+    def search_base(self):
+        expect(self.BASE).to_be_visible()
 
 

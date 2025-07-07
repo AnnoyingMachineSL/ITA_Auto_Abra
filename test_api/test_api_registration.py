@@ -24,7 +24,7 @@ class TestRegistration:
             random_password = generator.random_password()
 
         with allure.step(f'Create temporary email by email {random_email}'):
-            email_client = EmailClient(temporary_email=random_email)
+            email_client = EmailClient(temporary_email=random_email.split('@')[0])
 
         with allure.step(f'Create RegistrationModel by email:{random_email} and password {random_password}'):
             registration_model = LoginModel(email=random_email, password=random_password)

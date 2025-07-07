@@ -1,3 +1,5 @@
+import time
+
 import allure
 import pytest
 
@@ -18,6 +20,9 @@ class TestSearchMainPageElements:
     @allure.severity(allure.severity_level.TRIVIAL)
     def test_search_main_page_elements(self, login):
         main_page = MainPage(login)
+
+        with allure.step('Search a base'):
+            main_page.search_base()
 
         with allure.step('Search main logo'):
             main_page.search_main_logo()

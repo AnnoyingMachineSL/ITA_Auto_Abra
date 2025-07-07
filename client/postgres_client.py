@@ -12,7 +12,7 @@ class PostgresClient:
                                       user='test_user',
                                       password='nQhrNsjoajEr',
                                       host='172.212.108.64',
-                                      port=6502)  # Открытие bd
+                                      port=6532)  # Открытие bd
 
         cursor = connection.cursor()  # Обращение к bd
         cursor.execute(request)  # Передаем запрос в файл
