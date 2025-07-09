@@ -79,8 +79,3 @@ class Client(ClientApi):
         response = self.request(method='get', url='/users/account/personalInfo', headers=headers)
         return ValidateResponse.validate_response(response=response, model=expected_model, status_code=status_code)
 
-
-    # @allure.step('GET /auth/sign-in/current')
-    # def get_user_information(self):
-    #     response = self.request(method='get', url='/auth/sign-in/current')
-    #     return response.json(), response.status_code

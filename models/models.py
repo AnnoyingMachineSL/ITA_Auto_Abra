@@ -87,4 +87,4 @@ class PersonalInfoResultModel(TypedDict):
 
 class PersonalInfoResponseModel(BaseModel):
     ok: Optional[bool] = True
-    result: Optional[dict] = PersonalInfoResultModel()
+    result: Optional[dict] = PersonalInfoResultModel

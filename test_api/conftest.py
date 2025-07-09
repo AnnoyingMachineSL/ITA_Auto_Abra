@@ -39,4 +39,4 @@ def registration_new_account_without_verification(request):
 @pytest.fixture
 def login_access_token_cookie(request):
     login_model = LoginModel(email=request.param[0], password=request.param[1])
-    return Client().login_get_token(request=login_model)
+    return Client().login_get_token(request=login_model), request.param[0]

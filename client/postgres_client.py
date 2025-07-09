@@ -25,3 +25,7 @@ class PostgresClient:
         actual_model = UserModel(email=result[0][3], is_deleted=result[0][1], is_verified=result[0][0])
         expected_model = UserModel(email=email, is_deleted=is_deleted, is_verified=is_verified)
         check_difference_between_objects(actual_model, expected_model)
+
+    def get_user_information(self, email: str):
+        request = 'select * from "user" u where email = ' + f"'{email}'"
+        return self.get_instance(request)
