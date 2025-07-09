@@ -1,6 +1,7 @@
 from typing import Optional, Union
 import json
 from pydantic import BaseModel, Field
+from typing_extensions import TypedDict
 
 
 # Components
@@ -70,3 +71,20 @@ class ForgotPasswordResponse(BaseModel):
 
 class ResetPasswordNegativeResponse(BaseModel):
     detail: Optional[list[NegativeLoginModelComponents]] = None
+
+
+
+#Get Personal Information Models
+
+class PersonalInfoResultModel(TypedDict):
+    id: Optional[int]
+    created_at: Optional[str]
+    updated_at: Optional[str]
+    email: Optional[str]
+    is_verified: Optional[bool]
+    is_deleted: Optional[bool]
+    is_supplier: Optional[bool]
+
+class PersonalInfoResponseModel(BaseModel):
+    ok: Optional[bool] = True
+    result: Optional[dict] = PersonalInfoResultModel()

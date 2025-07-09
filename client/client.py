@@ -2,8 +2,12 @@ import json
 from typing import Union
 import allure
 import requests
+from socks import method
+
 from models.models import LoginModel, LoginResponseModel, RegistrationResponseModel, NegativeLoginResponseModel, \
-    NegativeRegistrationResponseModel, ResetPasswordRequest, ForgotPasswordResponse, ResetPasswordNegativeResponse, LoginResponseNotVerifiedUserNegative
+    NegativeRegistrationResponseModel, ResetPasswordRequest, ForgotPasswordResponse, ResetPasswordNegativeResponse, \
+    LoginResponseNotVerifiedUserNegative, PersonalInfoResponseModel
+from utils.config import APILogin
 from utils.validate_response import ValidateResponse
 
 
@@ -62,6 +66,13 @@ class Client(ClientApi):
                        status_code=200):
         response = self.request(method='post', url=f'/users/password/reset?token={token}', json=request.model_dump())
         return ValidateResponse.validate_response(response=response, model=expected_model, status_code=status_code)
+
+    @allure.step('GET /users/account/peronalInfo')
+    def get_personal_info(self, token: str, expected_model: PersonalInfoResponseModel, status_code=200):
+        headers = {"Cookie":f"access_token_cookie={token}"}
+        response = self.request(method='get', url='/users/account/personalInfo', headers=headers)
+        return ValidateResponse.validate_response(response=response, model=expected_model, status_code=status_code)
+
 
     # @allure.step('GET /auth/sign-in/current')
     # def get_user_information(self):
