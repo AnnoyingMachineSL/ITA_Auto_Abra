@@ -1,8 +1,6 @@
 class APILogin:
     LOGIN = 'runn1k195@gmail.com'
     PASSWORD = 'QWE123!qwe123'
-    TOKEN = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOjExLCJpYXQiOjE3NTIwNDA5MTgsIm5iZiI6MTc1MjA0MDkxOCwianRpIjoiYTM1MGRmMWUtNmIzYi00MDUyLTljZTEtZDgyOTI3NjA1NzQ3IiwiZXhwIjoxNzUyNjQ1NzE4LCJ0eXBlIjoiYWNjZXNzIiwiZnJlc2giOmZhbHNlfQ.PQQEFt7yTPCCE36VLVAgfUvf6FRUQcz-v38UlB2IiiQ'
-
 
 class AbraLoginConfig:
     BASE_PAGE_URL = 'https://dev.abra-market.com'
