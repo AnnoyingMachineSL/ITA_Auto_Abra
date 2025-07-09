@@ -34,3 +34,9 @@ def registration_new_account_without_verification(request):
     response = Client().registration(request=registration_model, expected_model=RegistrationResponseModel(),
                                      user_type=user_type, status_code=200)
     return random_email, random_password
+
+
+@pytest.fixture
+def login_access_token_cookie(request):
+    login_model = LoginModel(email=request.param[0], password=request.param[1])
+    return Client().login_get_token(request=login_model)

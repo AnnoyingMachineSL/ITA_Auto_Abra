@@ -14,8 +14,9 @@ class TestGetPersonalInfo:
     @allure.title('[Api test] Get personal info')
     @pytest.mark.positive
     @pytest.mark.API
+    @pytest.mark.parametrize('login_access_token_cookie', [(APILogin.LOGIN, APILogin.PASSWORD)], indirect=True)
     @allure.severity(allure.severity_level.MINOR)
-    def test_api_get_personal_info(self):
-
+    def test_api_get_personal_info(self, login_access_token_cookie):
+        #cookies = login_access_token_cookie
         with allure.step(f'Get personal information after log in'):
-            print(Client().get_personal_info(token=APILogin.TOKEN, expected_model=PersonalInfoResponseModel()))
+            print(Client().get_personal_info(token=login_access_token_cookie['access_token_cookie'], expected_model=PersonalInfoResponseModel()))

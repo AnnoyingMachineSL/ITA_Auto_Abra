@@ -4,14 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="74526a0b-dfcd-40d9-b7e9-46a51870113f" name="Changes" comment="add unverified user login test">
-      <change afterPath="$PROJECT_DIR$/test_api/test_get_personal_info.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/ITA_Auto_Abra.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ITA_Auto_Abra.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="74526a0b-dfcd-40d9-b7e9-46a51870113f" name="Changes" comment="add test get personal info&#10;add new datamodel&#10;add connection by cookies">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/client.py" beforeDir="false" afterPath="$PROJECT_DIR$/client/client.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_api/conftest.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_api/conftest.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_api/test_get_personal_info.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_api/test_get_personal_info.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +30,18 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "AnnoyingMachineSL"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/AnnoyingMachineSL/ITA_Auto_Abra.git",
+    "accountId": "a7700746-a59e-44d3-bc61-02619bfe7094"
+  }
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
 }</component>
@@ -52,6 +61,7 @@
     "Python tests.Python tests for test_api.TestApiNegative.test_negative_login_incorrect_data.executor": "Run",
     "Python tests.Python tests for test_api.TestApiNegative.test_negative_registration.executor": "Run",
     "Python tests.Python tests for test_api_get_user_information.TestGetUserInformation.test_api_registration.executor": "Run",
+    "Python tests.Python tests for test_api_login.TestApiLogin.test_api_login.executor": "Run",
     "Python tests.Python tests for test_api_login.TestApiLoginNegative.test_api_login_not_verified_user.executor": "Run",
     "Python tests.Python tests for test_api_registration.TestRegistration.test_api_registration.executor": "Run",
     "Python tests.Python tests for test_get_personal_info.TestGetPersonalInfo.test_api_get_personal_info.executor": "Run",
@@ -96,26 +106,19 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="postgres_client" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="Python tests for test_api_login.TestApiLogin.test_api_login" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="ITA_Auto_Abra" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/client" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test_api" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/client/postgres_client.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_api_login.TestApiLogin.test_api_login&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
     <configuration name="Python tests for test_api_registration.TestRegistration.test_api_registration" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
@@ -166,17 +169,17 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python tests.Python tests for test_get_personal_info.TestGetPersonalInfo.test_api_get_personal_info" />
+        <item itemvalue="Python tests.Python tests for test_api_login.TestApiLogin.test_api_login" />
         <item itemvalue="Python tests.Python tests for test_search_main_page_elements.TestSearchMainPageElements.test_search_main_page_elements" />
         <item itemvalue="Python tests.Python tests for test_api_registration.TestRegistration.test_api_registration" />
         <item itemvalue="Python.client_email" />
-        <item itemvalue="Python.postgres_client" />
       </list>
     </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-eebebe6c2be4-d3b881c8e49f-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-233.15325.20" />
+        <option value="bundled-python-sdk-d7ad00fb9fc3-c546a90a8094-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-242.23726.102" />
       </set>
     </attachedChunks>
   </component>
@@ -269,7 +272,15 @@
       <option name="project" value="LOCAL" />
       <updated>1751266663542</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="add test get personal info&#10;add new datamodel&#10;add connection by cookies">
+      <option name="closed" value="true" />
+      <created>1752044289149</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1752044289149</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -283,6 +294,7 @@
     <MESSAGE value="add check item counter number" />
     <MESSAGE value="add search DB about registration new user&#10;change connection settings to DB" />
     <MESSAGE value="change add items to basket test" />
-    <option name="LAST_COMMIT_MESSAGE" value="change add items to basket test" />
+    <MESSAGE value="add test get personal info&#10;add new datamodel&#10;add connection by cookies" />
+    <option name="LAST_COMMIT_MESSAGE" value="add test get personal info&#10;add new datamodel&#10;add connection by cookies" />
   </component>
 </project>
