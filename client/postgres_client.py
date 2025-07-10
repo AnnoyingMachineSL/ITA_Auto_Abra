@@ -29,3 +29,7 @@ class PostgresClient:
     def get_user_information(self, email: str):
         request = 'select * from "user" u where email = ' + f"'{email}'"
         return self.get_instance(request)
+
+    def get_countries_id(self):
+        request = 'select c.id from country c'
+        return self.get_instance(request)

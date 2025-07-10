@@ -73,8 +73,7 @@ class ResetPasswordNegativeResponse(BaseModel):
     detail: Optional[list[NegativeLoginModelComponents]] = None
 
 
-
-#Get Personal Information Models
+# Get Personal Information Models
 
 class PersonalInfoResultModel(TypedDict):
     id: Optional[int]
@@ -85,6 +84,32 @@ class PersonalInfoResultModel(TypedDict):
     is_deleted: Optional[bool]
     is_supplier: Optional[bool]
 
+
 class PersonalInfoResponseModel(BaseModel):
     ok: Optional[bool] = True
     result: Optional[dict] = PersonalInfoResultModel
+
+
+class UpdatePersonalInfoRequestModel(BaseModel):
+    first_name: Optional[str]
+    last_name: Optional[str]
+    country_id: Optional[int]
+    phone_number: Optional[str]
+
+
+class UpdatePersonalInfoResponseModel(BaseModel):
+    ok: Optional[bool] = True
+    result: Optional[bool] = True
+
+
+class UpdatePersonalInformationComparingModel(BaseModel):
+    is_verified: Optional[bool]
+    is_deleted: Optional[bool]
+    is_supplier: Optional[bool]
+    email: Optional[str]
+    first_name: Optional[str]
+    last_name: Optional[str]
+    country_id: Optional[int]
+    phone_number: Optional[str]
+    created_at: Optional[str]
+    id: Optional[int]

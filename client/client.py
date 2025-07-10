@@ -6,7 +6,8 @@ from socks import method
 
 from models.models import LoginModel, LoginResponseModel, RegistrationResponseModel, NegativeLoginResponseModel, \
     NegativeRegistrationResponseModel, ResetPasswordRequest, ForgotPasswordResponse, ResetPasswordNegativeResponse, \
-    LoginResponseNotVerifiedUserNegative, PersonalInfoResponseModel
+    LoginResponseNotVerifiedUserNegative, PersonalInfoResponseModel, UpdatePersonalInfoRequestModel, \
+    UpdatePersonalInfoResponseModel
 from utils.config import APILogin
 from utils.validate_response import ValidateResponse
 
@@ -23,7 +24,7 @@ class ClientApi:
     def _initialize_session():
         return requests.Session()
 
-    def request(self, method: str, url: str, json=None, headers: str = None):
+    def request(self, method: str, url: str, json=None, headers: Union[str, dict] = None):
         response = self.session.request(method=method,
                                         url=self.base_url + url,
                                         headers=headers,
@@ -77,5 +78,15 @@ class Client(ClientApi):
     def get_personal_info(self, token: str, expected_model: PersonalInfoResponseModel, status_code=200):
         headers = {"Cookie":f"access_token_cookie={token}"}
         response = self.request(method='get', url='/users/account/personalInfo', headers=headers)
+        return ValidateResponse.validate_response(response=response, model=expected_model, status_code=status_code)
+
+
+    @allure.step('POST /users/account/personalInfo/update')
+    def update_personal_info(self, token: str, request: UpdatePersonalInfoRequestModel,
+                             expected_model = UpdatePersonalInfoResponseModel,
+                             status_code = 200):
+        headers = {"Cookie": f"access_token_cookie={token}"}
+        response = self.request(method='post', url='/users/account/personalInfo/update',
+                                headers=headers, json=request.model_dump())
         return ValidateResponse.validate_response(response=response, model=expected_model, status_code=status_code)
 
