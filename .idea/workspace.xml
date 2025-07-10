@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="74526a0b-dfcd-40d9-b7e9-46a51870113f" name="Changes" comment="Add data model from DB&#10;Add comparing data models">
-      <change afterPath="$PROJECT_DIR$/test_api/test_api_update_personal_info.py" afterDir="false" />
+    <list default="true" id="74526a0b-dfcd-40d9-b7e9-46a51870113f" name="Changes" comment="add test updating personal information">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/client.py" beforeDir="false" afterPath="$PROJECT_DIR$/client/client.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/postgres_client.py" beforeDir="false" afterPath="$PROJECT_DIR$/client/postgres_client.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_api/test_api_update_personal_info.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_api/test_api_update_personal_info.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -269,7 +266,15 @@
       <option name="project" value="LOCAL" />
       <updated>1752082847495</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="add test updating personal information">
+      <option name="closed" value="true" />
+      <created>1752168624938</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1752168624938</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -284,6 +289,7 @@
     <MESSAGE value="add search DB about registration new user&#10;change connection settings to DB" />
     <MESSAGE value="change add items to basket test" />
     <MESSAGE value="Add data model from DB&#10;Add comparing data models" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add data model from DB&#10;Add comparing data models" />
+    <MESSAGE value="add test updating personal information" />
+    <option name="LAST_COMMIT_MESSAGE" value="add test updating personal information" />
   </component>
 </project>

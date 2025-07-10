@@ -20,10 +20,8 @@ class TestGetPersonalInfo:
     @pytest.mark.positive
     @pytest.mark.API
     @pytest.mark.parametrize('login_access_token_cookie', [(APILogin.LOGIN, APILogin.PASSWORD)], indirect=True)
-    @pytest.mark.parametrize('country_id', [id[0] for id in PostgresClient().get_countries_id()][:4])
-    @pytest.mark.parametrize('first_name', ['', 'qwe', 'Tom'])
-    @pytest.mark.parametrize('last_name', ['', 'qwe', 'Hanks'])
-    @pytest.mark.parametrize('phone_number', ['', 'qwe', '123123123'])
+    @pytest.mark.parametrize('country_id', [id[0] for id in PostgresClient().get_countries_id()])
+    @pytest.mark.parametrize('first_name, last_name, phone_number', [('', '', ''), ('qwe', 'qwe', 'qwe'),('Tom', 'Hanks','123123123')])
     @allure.severity(allure.severity_level.MINOR)
     def test_api_update_personal_info(self, login_access_token_cookie, country_id: int, first_name: str,
                                       last_name: str, phone_number: str):
