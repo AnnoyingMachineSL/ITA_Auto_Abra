@@ -33,7 +33,7 @@ def login(playwright):
     login_page.open_page(AbraLoginConfig.BASE_PAGE_URL)
     login_page.click_login_button()
     login_page.fill_login_field(AbraLoginConfig.LOGIN)
-    login_page.fill_password_field(AbraLoginConfig.PASSWORD)
+    login_page.fill_password_field(AbraLoginConfig.NEW_PASSWORD)
     login_page.click_on_start_buying_text()
     login_page.click_log_in_button()
     return page

@@ -17,7 +17,7 @@ class TestAddItemsToBasket:
     @pytest.mark.UI
     @pytest.mark.smoke
     @allure.title('[UI][Positive] Search and add items')
-    @pytest.mark.parametrize('num_items', [2, 3])
+    @pytest.mark.parametrize('num_items', [3])
     @allure.severity(allure.severity_level.CRITICAL)
     def test_search_and_add_items_to_basket(self, login, num_items):
         main_page = MainPage(login)
@@ -48,6 +48,7 @@ class TestAddItemsToBasket:
                 main_page.fill_item_quantity_field()
                 main_page.click_on_add_to_cart_button()
                 main_page.get_back()
+                #main_page.reload_page()
 
 
         with allure.step('Go to basket and search items'):

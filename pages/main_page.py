@@ -277,7 +277,7 @@ class MainPage(BasePage):
         return self.ITEM_BLOCK_SELECTOR.count()
 
     def wait_items(self):
-        expect(self.ITEM_BOX.nth(0)).to_be_visible()
+        expect(self.ITEM_BOX.nth(0)).to_be_visible(timeout=5000)
 
     def click_on_change_location_button(self):
         self.CHANGE_LOCATION_BUTTON.click()
@@ -335,6 +335,7 @@ class MainPage(BasePage):
         assert item_names_from_basket.sort(reverse=True) == item_names_from_store_page.sort(reverse=True)
 
     def delete_all_item_from_basket(self):
+        expect(self.DELETE_FROM_BASKET_BUTTON_SELECTOR.nth(0)).to_be_visible()
         delete_buttons = self.DELETE_FROM_BASKET_BUTTON_SELECTOR.all()
 
         for button in delete_buttons:

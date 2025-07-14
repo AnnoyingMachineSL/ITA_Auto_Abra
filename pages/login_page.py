@@ -11,7 +11,7 @@ class LoginPage(BasePage):
         self.LOGIN_FIELD = self.page.locator('//*[@id="root"]/div/div/div/form/div[1]/input')
         self.PASSWORD_FIELD = self.page.locator('//*[@id="root"]/div/div/div/form/div[2]/input')
         self.LOG_IN_BUTTON = self.page.locator('//*[@id="root"]/div/div/div/form/button')
-        self.HEADER_ACTIONS = self.page.locator('//*[@id="root"]/div/div/header/div[1]/div/div[2]')
+        self.HEADER_ACTIONS = self.page.locator('//*[@id="root"]/div/div/header/div[1]/div/div[2]/div/button')
         self.START_BUYING_TEXT = self.page.get_by_text('Start buying in bulk now!')
         self.EMPTY_EMAIL_ERROR_MESSAGE = self.page.get_by_text('Email is required')
         self.INVALID_EMAIL_ERROR_MESSAGE = self.page.get_by_text('Invalid email')

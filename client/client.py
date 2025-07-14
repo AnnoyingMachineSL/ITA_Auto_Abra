@@ -7,7 +7,8 @@ from socks import method
 from models.models import LoginModel, LoginResponseModel, RegistrationResponseModel, NegativeLoginResponseModel, \
     NegativeRegistrationResponseModel, ResetPasswordRequest, ForgotPasswordResponse, ResetPasswordNegativeResponse, \
     LoginResponseNotVerifiedUserNegative, PersonalInfoResponseModel, UpdatePersonalInfoRequestModel, \
-    UpdatePersonalInfoResponseModel
+    UpdatePersonalInfoResponseModel, ChangePasswordRequestModel, ChangePasswordResponseModel, \
+    ChangePasswordNegativeResponse
 from utils.config import APILogin
 from utils.validate_response import ValidateResponse
 
@@ -38,10 +39,11 @@ class Client(ClientApi):
 
     @allure.step('POST /auth/sign-in')
     def login(self, request: LoginModel,
-              expected_model: Union[LoginResponseModel, NegativeLoginResponseModel, LoginResponseNotVerifiedUserNegative],
+              expected_model: Union[
+                  LoginResponseModel, NegativeLoginResponseModel, LoginResponseNotVerifiedUserNegative],
               status_code: int = 200):
         response = self.request(method='post', url='/auth/sign-in', json=request.model_dump())
-        #return response.cookies.get_dict()
+        # return response.cookies.get_dict()
         return ValidateResponse.validate_response(response=response, model=expected_model, status_code=status_code)
 
     @allure.step('POST /auth/sign-in')
@@ -76,17 +78,23 @@ class Client(ClientApi):
 
     @allure.step('GET /users/account/peronalInfo')
     def get_personal_info(self, token: str, expected_model: PersonalInfoResponseModel, status_code=200):
-        headers = {"Cookie":f"access_token_cookie={token}"}
+        headers = {"Cookie": f"access_token_cookie={token}"}
         response = self.request(method='get', url='/users/account/personalInfo', headers=headers)
         return ValidateResponse.validate_response(response=response, model=expected_model, status_code=status_code)
 
-
     @allure.step('POST /users/account/personalInfo/update')
     def update_personal_info(self, token: str, request: UpdatePersonalInfoRequestModel,
-                             expected_model = UpdatePersonalInfoResponseModel,
-                             status_code = 200):
+                             expected_model=UpdatePersonalInfoResponseModel,
+                             status_code=200):
         headers = {"Cookie": f"access_token_cookie={token}"}
         response = self.request(method='post', url='/users/account/personalInfo/update',
                                 headers=headers, json=request.model_dump())
         return ValidateResponse.validate_response(response=response, model=expected_model, status_code=status_code)
 
+    @allure.step('POST /users/password/change')
+    def change_password(self, token, request: ChangePasswordRequestModel,
+                        expected_model: Union[ChangePasswordResponseModel, ChangePasswordNegativeResponse], status_code: int = 200):
+        headers = {"Cookie": f"access_token_cookie={token}"}
+        response = self.request(method='post', url='/users/password/change',
+                                headers=headers, json=request.model_dump())
+        return ValidateResponse.validate_response(response=response, model=expected_model, status_code=status_code)

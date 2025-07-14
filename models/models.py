@@ -113,3 +113,24 @@ class UpdatePersonalInformationComparingModel(BaseModel):
     phone_number: Optional[str]
     created_at: Optional[str]
     id: Optional[int]
+
+
+class ChangePasswordRequestModel(BaseModel):
+    old_password: Optional[str]
+    new_password: Optional[str]
+
+
+class ChangePasswordResponseModel(BaseModel):
+    ok: Optional[bool] = True
+    result: Optional[bool] = True
+
+
+class ChangePasswordNegativeResponseDetail(TypedDict):
+    loc: Optional[list]
+    msg: Optional[str]
+    type: Optional[str]
+    ctx: Optional[dict]
+
+
+class ChangePasswordNegativeResponse(BaseModel):
+    detail: Optional[list] = ChangePasswordNegativeResponseDetail()

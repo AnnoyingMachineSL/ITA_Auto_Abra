@@ -17,3 +17,7 @@ def random_password():
 
 def random_temporary_email():
     return random_name() + '@mailto.plus'
+
+
+
+print(random_password())
