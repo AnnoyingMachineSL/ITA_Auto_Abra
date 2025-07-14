@@ -1,4 +1,6 @@
 import re
+import time
+
 import allure
 import pytest
 
@@ -26,7 +28,7 @@ class TestLogin:
 
         with allure.step('Fill login and password'):
             login_page.fill_login_field(AbraLoginConfig.LOGIN)
-            login_page.fill_password_field(AbraLoginConfig.PASSWORD)
+            login_page.fill_password_field(AbraLoginConfig.NEW_PASSWORD)
 
         with allure.step('Click on text on the page'):
             login_page.click_on_start_buying_text()

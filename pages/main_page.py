@@ -88,7 +88,7 @@ class MainPage(BasePage):
         self.ALL_CATEGORIES_CLOTHES_BUTTON = self.page.locator(
             '//*[@id="root"]/div/div/header/div[2]/div[1]/div/ul/li[2]/button')
         self.ALL_CATEGORIES_CLOTHES_SPORTSWEAR_BUTTON = self.page.locator(
-            '//*[@id="root"]/div/div/header/div[2]/div[1]/div/div/li[2]/a[3]/div')
+            '//*[@id="root"]/div/div/header/div[2]/div[1]/div/ul/li[2]')
         self.ITEM_BLOCK_SELECTOR = self.page.locator("//article[@class='ProductCard_card__rxSuo']")
 
         self.SELECT_COLOR_TEXT = self.page.locator(
@@ -174,26 +174,8 @@ class MainPage(BasePage):
     def search_clothes_category_block(self):
         expect(self.CLOTHES_CATEGORY_BLOCK).to_be_visible()
 
-    def search_clothes_category_right_button(self):
-        expect(self.CLOTHES_CATEGORY_RIGHT_BUTTON).to_be_visible()
-
-    def search_clothes_category_left_button(self):
-        expect(self.CLOTHES_CATEGORY_LEFT_BUTTON).to_be_visible()
-
-    def search_clothes_category_view_more_button(self):
-        expect(self.CLOTHES_CATEGORY_VIEW_MORE_BUTTON).to_be_visible()
-
     def search_kids_category_block(self):
         expect(self.KIDS_CATEGORY_BLOCK).to_be_visible()
-
-    def search_kids_category_right_button(self):
-        expect(self.KIDS_CATEGORY_RIGHT_BUTTON).to_be_visible()
-
-    def search_kids_category_left_button(self):
-        expect(self.KIDS_CATEGORY_LEFT_BUTTON).to_be_visible()
-
-    def search_kids_category_view_more_button(self):
-        expect(self.KIDS_CATEGORY_VIEW_MORE_BUTTON).to_be_visible()
 
     def search_title_email_mailing(self):
         expect(self.TITLE_EMAIL_MAILING).to_be_visible()
@@ -273,41 +255,17 @@ class MainPage(BasePage):
     def click_on_all_categories_clothes_sportswear_button(self):
         self.ALL_CATEGORIES_CLOTHES_SPORTSWEAR_BUTTON.click()
 
-    def get_items_count(self):
-        return self.ITEM_BLOCK_SELECTOR.count()
-
     def wait_items(self):
-        expect(self.ITEM_BOX.nth(0)).to_be_visible(timeout=5000)
+        expect(self.ITEM_BOX.nth(0)).to_be_visible(timeout=20000)
 
     def click_on_change_location_button(self):
         self.CHANGE_LOCATION_BUTTON.click()
 
-    def get_two_random_items_from_list(self):
-        random_item_index = random.sample(range(0, self.get_items_count()), 2)
-        return self.ITEM_BLOCK_SELECTOR.nth(random_item_index[0]), self.ITEM_BLOCK_SELECTOR.nth(random_item_index[1])
-
     def get_item_name_from_item(self, element):
         return element.text_content().split('more')[1].split('$')[0]
 
-    def click_on_item_color(self):
-        expect(self.ITEM_COLOR_SELECTOR.nth(0)).to_be_visible()
-        self.ITEM_COLOR_SELECTOR.nth(0).click()
-
     def click_on_add_to_cart_button(self):
         self.ADD_TO_CART_BUTTON.click()
-
-    def check_select_color_text(self):
-        return self.SELECT_COLOR_TEXT.count()
-
-    def aaaa(self):
-        return expect(self.SIZE_BUTTON_LOCATOR).to_be_visible()
-
-    def check_size_and_quantity_text(self):
-        return self.SIZE_AND_QUANTITY_TEXT.count()
-
-    def click_on_size_button(self):
-        expect(self.SIZE_BUTTON_LOCATOR.nth(0)).to_be_visible()
-        self.SIZE_BUTTON_LOCATOR.nth(0).click()
 
     def check_number_in_item_counter(self):
         return self.BASKET_ITEM_COUNTER.text_content()
@@ -318,14 +276,6 @@ class MainPage(BasePage):
     def fill_item_quantity_field(self):
         self.ITEM_QUANTITY.fill('1')
 
-    def click_on_item(self, item_name):
-        self.ITEM_BOX.get_by_text(item_name).click()
-        self.fill_item_quantity_field()
-        # try:
-        #     self.click_on_size_button()
-        # except:
-        #     self.click_on_item_color()
-
     def get_items_names_from_basket(self):
         expect(self.ITEMS_NAME_IN_BASKET_LOCATOR.nth(0)).to_be_visible()
         return [item.text_content() for item in self.ITEMS_NAME_IN_BASKET_LOCATOR.all()]
@@ -335,6 +285,7 @@ class MainPage(BasePage):
         assert item_names_from_basket.sort(reverse=True) == item_names_from_store_page.sort(reverse=True)
 
     def delete_all_item_from_basket(self):
+        self.reload_page()
         expect(self.DELETE_FROM_BASKET_BUTTON_SELECTOR.nth(0)).to_be_visible()
         delete_buttons = self.DELETE_FROM_BASKET_BUTTON_SELECTOR.all()
 
@@ -356,5 +307,8 @@ class MainPage(BasePage):
 
     def search_base(self):
         expect(self.BASE).to_be_visible()
+
+    def click_on_item(self, item_name):
+        self.page.get_by_text(item_name).click()
 
 

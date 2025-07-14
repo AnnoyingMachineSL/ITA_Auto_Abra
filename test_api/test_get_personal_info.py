@@ -6,6 +6,7 @@ from models.models import PersonalInfoResponseModel, PersonalInfoResultModel
 from utils.common_cheker import check_difference_between_objects
 from utils.config import APILogin
 from client.client import Client
+from pprint import pprint
 
 
 @allure.title('[Positive] Get Personal Information about authorized user')
@@ -28,7 +29,7 @@ class TestGetPersonalInfo:
 
         with allure.step('Get personal information from DB'):
             database_response = PostgresClient().get_user_information(email=user_email)
-
+            print(database_response)
         with allure.step('Prepare Data models for comparing'):
             personal_info_result = PersonalInfoResultModel(id=database_response[0][-1],
                                                            created_at=str(database_response[0][8]),
@@ -39,10 +40,16 @@ class TestGetPersonalInfo:
                                                            is_supplier=database_response[0][2])
 
             database_data_model = PersonalInfoResponseModel(ok=True, result=personal_info_result)
+        with allure.step('Make api model for comparing'):
 
-            api_response.result['created_at'] = api_response.result['created_at'].replace("T", " ")
-            api_response.result['updated_at'] = api_response.result['updated_at'].replace("T", " ")
+            personal_info_from_api = PersonalInfoResultModel(id=api_response.result['id'],
+                                                             created_at=api_response.result['created_at'].replace("T", " "),
+                                                             updated_at=api_response.result['updated_at'].replace("T", " "),
+                                                             email=api_response.result['email'],
+                                                             is_verified=api_response.result['is_verified'],
+                                                             is_deleted=api_response.result['is_deleted'],
+                                                             is_supplier=api_response.result['is_supplier'])
+            api_data_model = PersonalInfoResponseModel(ok=True, result=personal_info_from_api)
 
         with allure.step('Check difference between models'):
-            check_difference_between_objects(database_data_model, api_response)
-
+            check_difference_between_objects(database_data_model, api_data_model)

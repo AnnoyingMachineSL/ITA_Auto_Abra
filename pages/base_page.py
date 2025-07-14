@@ -20,3 +20,6 @@ class BasePage:
 
     def make_screenshot(self, save_name):
         self.page.screenshot(path=save_name)
+
+    def page_moving(self, y, x):
+        self.page.mouse.wheel(y, x)
