@@ -134,3 +134,22 @@ class ChangePasswordNegativeResponseDetail(TypedDict):
 
 class ChangePasswordNegativeResponse(BaseModel):
     detail: Optional[list] = ChangePasswordNegativeResponseDetail()
+
+
+class CheckPasswordResponseModel(BaseModel):
+    ok: Optional[bool] = True
+    result: Optional[bool] = True
+
+
+class CheckPasswordNegativeResponse(BaseModel):
+    detail: Optional[str]
+
+
+class CheckPasswordInvalidPasswordDetails(TypedDict):
+    loc: Optional[list]
+    msg: Optional[str]
+    type: Optional[str]
+
+
+class CheckPasswordInvalidPasswordResponse(BaseModel):
+    detail: Optional[list] = CheckPasswordInvalidPasswordDetails()

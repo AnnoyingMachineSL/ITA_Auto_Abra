@@ -2,7 +2,9 @@ import allure
 import pytest
 
 from models.models import ChangePasswordRequestModel, ChangePasswordResponseModel, LoginModel, \
-    NegativeLoginResponseModel, LoginResponseNotVerifiedUserNegative, LoginResponseModel, ChangePasswordNegativeResponse
+    NegativeLoginResponseModel, LoginResponseNotVerifiedUserNegative, LoginResponseModel, \
+    ChangePasswordNegativeResponse, CheckPasswordResponseModel, CheckPasswordNegativeResponse, \
+    CheckPasswordInvalidPasswordResponse
 from utils.config import APILogin
 from client.client import Client
 from client.postgres_client import PostgresClient
@@ -35,21 +37,17 @@ class TestChangePassword:
                                      request=request_model,
                                      expected_model=ChangePasswordResponseModel())
 
-        with allure.step('Prepare login data model using old data'):
-            old_authorization_data = LoginModel(email=APILogin.LOGIN,
-                                                password=APILogin.PASSWORD)
+        with allure.step('Check new password'):
+            Client().check_password(token=user_tokens['access_token_cookie'],
+                                    request={'current_password': new_password},
+                                    expected_model=CheckPasswordResponseModel(),
+                                    status_code=200)
 
-        with allure.step('Try to authorization using old password'):
-            Client().login(request=old_authorization_data, expected_model=LoginResponseNotVerifiedUserNegative(),
-                           status_code=403)
-
-        with allure.step('Prepare login data model using new data'):
-            new_authorization_data = LoginModel(email=APILogin.LOGIN,
-                                                password=new_password)
-
-        with allure.step('Try to authorization using new password'):
-            Client().login(request=new_authorization_data, expected_model=LoginResponseModel(),
-                           status_code=200)
+        with allure.step('Check old password'):
+            Client().check_password(token=user_tokens['access_token_cookie'],
+                                    request={'current_password': APILogin.PASSWORD},
+                                    expected_model=CheckPasswordNegativeResponse(detail="Invalid password"),
+                                    status_code=403)
 
         with allure.step('Get back to old password'):
             request_model = ChangePasswordRequestModel(old_password=new_password,
@@ -84,9 +82,8 @@ class TestChangePasswordNegative:
                                      expected_model=ChangePasswordNegativeResponse(),
                                      status_code=422)
 
-        with allure.step('Try to authorization using uncorrected password'):
-            uncorrected_authorization_data = LoginModel(email=APILogin.LOGIN,
-                                                        password=new_password)
-            Client().login(request=uncorrected_authorization_data,
-                           expected_model=LoginResponseNotVerifiedUserNegative(),
-                           status_code=403)
+        with allure.step('Check uncorrected password'):
+            Client().check_password(token=user_tokens['access_token_cookie'],
+                                    request={'current_password': new_password},
+                                    expected_model=CheckPasswordInvalidPasswordResponse(),
+                                    status_code=422)

@@ -8,7 +8,8 @@ from models.models import LoginModel, LoginResponseModel, RegistrationResponseMo
     NegativeRegistrationResponseModel, ResetPasswordRequest, ForgotPasswordResponse, ResetPasswordNegativeResponse, \
     LoginResponseNotVerifiedUserNegative, PersonalInfoResponseModel, UpdatePersonalInfoRequestModel, \
     UpdatePersonalInfoResponseModel, ChangePasswordRequestModel, ChangePasswordResponseModel, \
-    ChangePasswordNegativeResponse
+    ChangePasswordNegativeResponse, CheckPasswordResponseModel, CheckPasswordNegativeResponse, \
+    CheckPasswordInvalidPasswordResponse
 from utils.config import APILogin
 from utils.validate_response import ValidateResponse
 
@@ -97,4 +98,13 @@ class Client(ClientApi):
         headers = {"Cookie": f"access_token_cookie={token}"}
         response = self.request(method='post', url='/users/password/change',
                                 headers=headers, json=request.model_dump())
+        return ValidateResponse.validate_response(response=response, model=expected_model, status_code=status_code)
+
+    @allure.step('POST /users/password/check')
+    def check_password(self, token, request: dict,
+                       expected_model: Union[CheckPasswordResponseModel, CheckPasswordNegativeResponse, CheckPasswordInvalidPasswordResponse],
+                       status_code=200):
+        headers = {"Cookie": f"access_token_cookie={token}"}
+        response = self.request(method='post', url='/users/password/check',
+                                headers=headers, json=request)
         return ValidateResponse.validate_response(response=response, model=expected_model, status_code=status_code)
