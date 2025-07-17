@@ -94,7 +94,8 @@ class Client(ClientApi):
 
     @allure.step('POST /users/password/change')
     def change_password(self, token, request: ChangePasswordRequestModel,
-                        expected_model: Union[ChangePasswordResponseModel, ChangePasswordNegativeResponse], status_code: int = 200):
+                        expected_model: Union[ChangePasswordResponseModel, ChangePasswordNegativeResponse],
+                        status_code: int = 200):
         headers = {"Cookie": f"access_token_cookie={token}"}
         response = self.request(method='post', url='/users/password/change',
                                 headers=headers, json=request.model_dump())
@@ -102,9 +103,32 @@ class Client(ClientApi):
 
     @allure.step('POST /users/password/check')
     def check_password(self, token, request: dict,
-                       expected_model: Union[CheckPasswordResponseModel, CheckPasswordNegativeResponse, CheckPasswordInvalidPasswordResponse],
+                       expected_model: Union[
+                           CheckPasswordResponseModel, CheckPasswordNegativeResponse, CheckPasswordInvalidPasswordResponse],
                        status_code=200):
         headers = {"Cookie": f"access_token_cookie={token}"}
         response = self.request(method='post', url='/users/password/check',
                                 headers=headers, json=request)
         return ValidateResponse.validate_response(response=response, model=expected_model, status_code=status_code)
+
+    @allure.step('GET /products')
+    def get_products_list(self, token, limit: int = 2, status_code=200):
+        headers = {"Cookie": f"access_token_cookie={token}"}
+        response = self.request(method='get', url=f'/products?offset=0&limit={limit}&sort=rating&ascending=false'
+                                                  f'&on_sale=all&discount=false',
+                                headers=headers)
+        return response.text
+
+    @allure.step('GET /products/product_id')
+    def get_product_info(self, token, product_id: int, status_code=200):
+        headers = {"Cookie": f"access_token_cookie={token}"}
+        response = self.request(method='get', url=f'/products/{product_id}', headers=headers)
+        return response
+
+    @allure.step('PUT /sellers/cart/addProduct')
+    def add_product_to_basket(self, token, amount: int, variation_value_to_product_id : int, bundle_id: int):
+        headers = {"Cookie": f"access_token_cookie={token}"}
+        response = self.request(method='put', url=f'/sellers/cart/addProduct?amount={amount}'
+                                                  f'&variation_value_to_product_id={variation_value_to_product_id}'
+                                                  f'&bundle_id={bundle_id}', headers=headers)
+        return response

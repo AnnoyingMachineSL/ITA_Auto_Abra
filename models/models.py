@@ -153,3 +153,9 @@ class CheckPasswordInvalidPasswordDetails(TypedDict):
 
 class CheckPasswordInvalidPasswordResponse(BaseModel):
     detail: Optional[list] = CheckPasswordInvalidPasswordDetails()
+
+
+class ProductTypeDataModel(BaseModel):
+    id: Optional[int]
+    name: Optional[str]
+    variation_value_to_product_id: Optional[list]
