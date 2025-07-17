@@ -45,7 +45,6 @@ class TestGetPersonalInfo:
 
         with allure.step('Add product to basket'):
             for product in products_data_model_list:
-                print(type(product.variation_value_to_product_id[0]))
                 response = Client().add_product_to_basket(token=user_tokens['access_token_cookie'],
                                                           amount=1,
                                                           variation_value_to_product_id=

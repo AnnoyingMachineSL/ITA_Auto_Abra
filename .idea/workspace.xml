@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="74526a0b-dfcd-40d9-b7e9-46a51870113f" name="Changes" comment="change password changing test">
-      <change afterPath="$PROJECT_DIR$/test_api/test_api_add_items_to_basket.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/product_data_scripts.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/client.py" beforeDir="false" afterPath="$PROJECT_DIR$/client/client.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/models.py" afterDir="false" />
+    <list default="true" id="74526a0b-dfcd-40d9-b7e9-46a51870113f" name="Changes" comment="add api test put product to basket">
+      <change beforePath="$PROJECT_DIR$/test_api/test_api_add_items_to_basket.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_api/test_api_add_items_to_basket.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -314,7 +310,15 @@
       <option name="project" value="LOCAL" />
       <updated>1752599952519</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="add api test put product to basket">
+      <option name="closed" value="true" />
+      <created>1752778359903</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1752778359903</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -334,6 +338,7 @@
     <MESSAGE value="add change password api tests" />
     <MESSAGE value="repair add items test, get personal information test and login test" />
     <MESSAGE value="change password changing test" />
-    <option name="LAST_COMMIT_MESSAGE" value="change password changing test" />
+    <MESSAGE value="add api test put product to basket" />
+    <option name="LAST_COMMIT_MESSAGE" value="add api test put product to basket" />
   </component>
 </project>
